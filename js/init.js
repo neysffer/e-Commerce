@@ -40,8 +40,16 @@ var getJSONData = function(url){
     });
 }
 
+function ShowPag(data){
+//  console.log(JSON.stringify(array))    
+   if(data == null){
+    alert("Inicie sesión para continuar");
+    window.location = "login.html"; 
+  }  
+} 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  ShowPag(JSON.parse(sessionStorage.getItem("Base_DATOS")));
 });
