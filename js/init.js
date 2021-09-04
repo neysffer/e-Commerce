@@ -40,16 +40,25 @@ var getJSONData = function(url){
     });
 }
 
-function ShowPag(data){
+function ShowPag(data){//Funcion que me redirige al login
 //  console.log(JSON.stringify(array))    
-   if(data == null){
-    alert("Inicie sesión para continuar");
-    window.location = "login.html"; 
+   if(data == null){//Si el arreglo que trae el sessionStorage está vacío...
+    alert("Inicie sesión para continuar");//Alerta de que inicie sesión
+    window.location = "login.html"; //Redirección a la pantalla del login
   }  
 } 
+
+function mostrarUser(){
+  const user_s = document.getElementById("Usuario");
+  const u_ser = sessionStorage.getItem("Base_DATOS");
+  user_s.innerHTML = JSON.parse(u_ser)[0].user;
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
   ShowPag(JSON.parse(sessionStorage.getItem("Base_DATOS")));
+
+  mostrarUser();
 });
