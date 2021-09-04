@@ -9,13 +9,13 @@ var jsonStr = JSON.stringify(PRODUCTS_URL);
 document.body.innerHTML = jsonStr; */
 
 const ORDER_ASC_BY_COST = "AZ";
-const ORDER_DESC_BY_COST= "ZA ";
+const ORDER_DESC_BY_COST= "Z";
 const ORDER_DESC_BY_CANT= "ZA";
 const ORDER_NORMAL = " ";
 var Products_Array = [];
-var currentSortCriteria = undefined;
-var minCount = undefined;
-var maxCount = undefined;
+var So_rt = undefined;
+var mini_mon = undefined;
+var maxi_mo = undefined;
 
 //const arre_prueba = [];
 //let productos; //Creo una variable ya que no me funciona crearla dentro del for
@@ -110,8 +110,8 @@ var maxCount = undefined;
         for(let i = 0; i < Products_Array.length; i++){
             let productos = Products_Array[i];
     
-              if (((minCount == undefined) || (minCount != undefined && parseInt(productos.cost) >= minCount)) &&
-                ((maxCount == undefined) || (maxCount != undefined && parseInt(productos.cost) <= maxCount))){   
+              if (((mini_mon == undefined) || (mini_mon != undefined && parseInt(productos.cost) >= mini_mon)) &&
+                ((maxi_mo == undefined) || (maxi_mo != undefined && parseInt(productos.cost) <= maxi_mo))){   
     
                 htmlContentToAppend += `
                 <a href="products.html" class="list-group-item list-group-item-action" id="cambio">
@@ -137,13 +137,13 @@ var maxCount = undefined;
     }
     
     function sortAndShowProducts(sortCriteria, Array){
-        currentSortCriteria = sortCriteria;
+        So_rt = sortCriteria;
     
         if(Array != undefined){
             Products_Array = Array;
         }
     
-        Products_Array = sort_Productos(currentSortCriteria, Products_Array);
+        Products_Array = sort_Productos(So_rt, Products_Array);
     
         //Muestro los productos ordenados
         ShowProductsList();
@@ -179,25 +179,25 @@ var maxCount = undefined;
 
     document.getElementById("btn_filP").addEventListener("click", function(){
         //Obtengo el mínimo y máximo de los intervalos para filtrar por precio
-        minCount = document.getElementById("min").value;
-        maxCount = document.getElementById("max").value;
+        mini_mon = document.getElementById("min").value;
+        maxi_mo = document.getElementById("max").value;
         //Hago comparaciones en funcion del valor minimo y maximo
-        if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0){
-            minCount = parseInt(minCount);
+        if ((mini_mon != undefined) && (mini_mon != "") && (parseInt(mini_mon)) >= 0){
+            mini_mon = parseInt(mini_mon);
         }
         else{
-            minCount = undefined;
+            mini_mon = undefined;
         }
 
-        if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0){
-            maxCount = parseInt(maxCount);
+        if ((maxi_mo != undefined) && (maxi_mo != "") && (parseInt(maxi_mo)) >= 0){
+            maxi_mo = parseInt(maxi_mo);
         }
         else{
-            maxCount = undefined;
+            maxi_mo = undefined;
         }
 
         ShowProductsList();
     });
     
 });   
-{}
+
