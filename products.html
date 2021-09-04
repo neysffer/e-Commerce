@@ -13,7 +13,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="produ_ctos">
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
@@ -21,9 +21,30 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <a id="Usuario" class="py-2 d-none d-md-inline-block" href="my-profile.html"></a>
       </div>
     </nav>
+
+<!--     <div class="slide">
+      <input type="range" min="12000" max="15500" value="1" id="rango">
+    </div> -->
+    <div class="Rango_precio">
+    <p id="colortxt">Mínimo:<input type="text"  name="minimo" required id="min"> Máximo: <input type="text"  name="maximo" required id="max"></p>
+    <!-- <input type="button" value="Filtrar" id="btn_filP"> -->
+    <button type="button" class="btn btn-outline-success" id="btn_filP">Filtrar</button>
+    </div>
+    
+    <div class="Rango_ascendente">
+      <button type="button" class="btn btn-outline-primary" id="ascendente">Precio_Asc</button>
+      <button type="button" class="btn btn-outline-primary" id="descendente_precio">Precio_Desc</button>
+      <button type="button" class="btn btn-outline-danger" id="descendente">Cantidad</button>
+<!--       <input type="button" value="Precio" id="ascendente"> 
+      <input type="button" value="Cantidad" id="descendente"> -->
+    </div>
+
     <div id="imagen_es"> </div>
+  
+
     <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>

@@ -140,6 +140,66 @@ a.custom-card:hover {
   color: orange;
 }
 
+#imagen_es{
+  margin-left: 600px;
+  position: fixed;
+  color: rgb(255, 255, 255);
+}
+
+#colortxt{
+  color: #fff;
+  background-color: black;
+}
+#min{
+  width: 100px;
+  height: 20px;
+  
+}
+
+#max{
+  width: 100px;
+  height: 20px;
+}
+
+.Rango_precio{
+  position: fixed;
+}
+
+.produ_ctos{
+  background-image: url("../img/algo3.gif");
+}
+
+.Rango_ascendente{
+  position: fixed;
+  margin-top: 100px;
+}
+
+#cambio{
+  background-color: transparent;
+  color: #fff;
+}
+
+#titulos_cars{
+  color: rgb(206, 7, 7);
+}
+
+#cant_cars{
+  color: lightgray;
+  height: 20px;
+  background-color: rgba(3, 3, 243, 0.493);
+  border-radius: 8px;
+}
+
+#desc_cars{
+  color: rgb(3, 149, 160);
+}
+
+#cost_cars{
+  color: rgb(4, 234, 250) ;
+}
+/* #Cantidad{
+  
+} */
 
 
 
