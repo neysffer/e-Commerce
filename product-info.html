@@ -26,35 +26,81 @@
       <a id="Usuario" class="py-2 d-none d-md-inline-block" href="my-profile.html"></a>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+
+  <div id="p_info">
+
+    <main role="main">
+      <div class="container mt-5">
+        <div class="text-center p-4">
+          <h2>Información del producto</h2>
+         
+        </div>
+        <h3 id="Nompre_prod"></h3>
+        <hr class="my-3">
+        <dl>
+          <dt>Descripción</dt>
+          <dd>
+            <p id="Desc_prod"></p>
+          </dd>
+  
+          <dt>Precio</dt>
+          <dd>
+            <p id="Precio_prod"></p>
+          </dd>
+  
+          <dt>Cantidad</dt>
+          <dd>
+            <p id="Cant_prod"></p>
+          </dd>
+          
+          <dt>Categoría</dt>
+          <dd>
+            <p id="Cate_prod"></p>
+          </dd>
+
+          <dt>Imágenes ilustrativas</dt>
+          <dd>
+            <div class="row text-center text-lg-left pt-2" id="Img_prod">
+            </div>
+          </dd>
+        </dl>
+      </div>
+    
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
+
   </div>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+
+  <hr>
+  
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Reseñas</h2>
+      </div>
     </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+  
+   <div id="comentarios">  </div>
+  </main>
+   <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver a Productos</a>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+
+
+  
+
+
+
+
 </body>
 
 </html>

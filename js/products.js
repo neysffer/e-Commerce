@@ -114,7 +114,7 @@ var maxi_mo = undefined;
                 ((maxi_mo == undefined) || (maxi_mo != undefined && parseInt(productos.cost) <= maxi_mo))){   
     
                 htmlContentToAppend += `
-                <a href="products.html" class="list-group-item list-group-item-action" id="cambio">
+                <a href="product-info.html" class="list-group-item list-group-item-action" id="cambio">
                     <div class="row">
                         <div class="col-3">
                             <img src="` + productos.imgSrc + `" alt="` + productos.description + `" class="img-thumbnail">
@@ -150,7 +150,6 @@ var maxi_mo = undefined;
     }
 
 
-    
    document.addEventListener("DOMContentLoaded",  async function (e) {
     //const autos = (await getJSONData(PRODUCTS_URL)).data;//Traigo el JSON con mi lista de productos
     //ShowList(autos);//Llamo a mi función
@@ -198,6 +197,7 @@ var maxi_mo = undefined;
 
         ShowProductsList();
     });
+    
     
 });   
 
