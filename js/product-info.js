@@ -3,8 +3,11 @@
 //elementos HTML presentes.
 var info_product = {};
 let arre_comment = [];
+let comment_data;
+let my_info;
 
-function showImagesGallery(array){
+
+function Show_IMG(array){
 
     let htmlContentToAppend = "";
 
@@ -25,26 +28,22 @@ function showImagesGallery(array){
 
     function ShowComments(myjsoncomments){
         let suitchi = "";
-        let show_stars = "";
         for(let i = 0; i < myjsoncomments.length; i++){
             let info_comments = myjsoncomments[i];
             let my_stars = info_comments.score;
             /* console.log(JSON.parse(my_stars)); */
-            suitchi += ` 
-            <div class="container mt-5">
-            <div class="text-center p-4">
-            </div>
+            suitchi += `
             <hr class="my-3">
             <dl>
               <dt>Usuario: `+ info_comments.user +`</dt>
 
               <p>` + info_comments.description + `</p>
       
-              <p>`+ info_comments.dateTime +`</p>
-            
+              <p class= "text-muted">`+ info_comments.dateTime +`</p>
+            </dl>
             `
           
-            for (let j = 1; j <= (JSON.parse(my_stars)); j++){ 
+            for (let j = 1; j <= (my_stars); j++){ 
                 
                 suitchi+= `
                 <span class="fa fa-star checked"></span>
@@ -57,6 +56,36 @@ function showImagesGallery(array){
         
         document.getElementById("comentarios").innerHTML = suitchi;
         
+    }
+
+    function Add_comment(){
+        comment_data = document.getElementById("msg").value;
+        my_info = sessionStorage.getItem("Base_DATOS");
+        let day_and_hour = new Date();
+        let traer_mes = day_and_hour.getMonth()+1;
+
+        let suitchi_1 = "";
+
+        if(comment_data != ""){
+            /* console.log(comment_data); */
+            suitchi_1 += `
+            <hr class="my-3">
+            <dl>
+              <dt>Usuario: `+ JSON.parse(my_info)[0].user +`</dt>
+
+              <p>` + comment_data + `</p>
+
+              <p class= "text-muted">`+ day_and_hour.getFullYear() + `  `+ traer_mes + `  `+ day_and_hour.getDate() +` `+ day_and_hour.getHours() +` `+ day_and_hour.getMinutes() +` `+ day_and_hour.getSeconds() +`</p>
+
+            </dl>
+            `
+        }
+        /* console.log(suitchi_1); */
+        document.getElementById("My_comments").innerHTML = suitchi_1;
+    }
+
+    function calificar(item){
+
     }
 
 
@@ -80,10 +109,12 @@ document.addEventListener("DOMContentLoaded", async function(e){
             product_ctegoria.innerHTML = info_product.category;
 
             //Muestro las imagenes en forma de galería
-            showImagesGallery(info_product.images);
+            Show_IMG(info_product.images);
         }
     });
 
     const the_comments = (await getJSONData(PRODUCT_INFO_COMMENTS_URL)).data;
         ShowComments(the_comments);
+
+    document.getElementById("msg_btn").addEventListener("click", Add_comment);
 });
