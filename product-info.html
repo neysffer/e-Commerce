@@ -15,7 +15,7 @@
   <link href="css/styles.css" rel="stylesheet">
 </head>
 
-<body>
+<body id="fondo_info">
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
@@ -31,7 +31,7 @@
   <div id="p_info">
 
     <main role="main">
-      <div class="container mt-5">
+      <div class="container mt-5" id="fondo_comment">
         <div class="text-center p-4">
           <h2>Información del producto</h2>
          
@@ -63,10 +63,10 @@
           <dd>
             <div class="row text-center text-lg-left pt-2" id="Img_prod">
             </div>
+            </div>
           </dd>
         </dl>
       </div>
-    
     <div id="spinner-wrapper">
       <div class="lds-ring">
         <div></div>
@@ -80,15 +80,31 @@
 
   <hr>
   
-    <div class="container mt-5">
+    <div class="container mt-5" id="fondo1_comment">
       <div class="text-center p-4">
         <h2>Reseñas</h2>
       </div>
-    </div>
-  
-   <div id="comentarios">  </div>
+
+    <div class="container mt-5"><div id="comentarios">  </div> <div id="My_comments"> </div>  </div>
+
   </main>
-   <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver a Productos</a>
+
+   <form>
+    <div class="container mt-5">
+   <div class="input-group">
+    <textarea id="msg" class="form-control"> </textarea>
+    <button id="msg_btn" type="button" class="btn btn-success">Enviar</button>
+  </div>
+  <div id="My_calif">
+    <span class="fa fa-star"   id="1"></span>
+    <span class="fa fa-star"   id="2"></span>
+    <span class="fa fa-star"   id="3"></span>
+    <span class="fa fa-star"   id="4"></span>
+    <span class="fa fa-star"   id="5"></span>
+ </div>
+</div>
+</form>
+</div>
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>

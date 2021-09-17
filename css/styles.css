@@ -197,6 +197,32 @@ a.custom-card:hover {
 #cost_cars{
   color: rgb(4, 234, 250) ;
 }
+
+#msg{
+  height: 45px;
+  margin-bottom: 20px;
+}
+
+#msg_btn{
+  margin-bottom: 20px;
+}
+
+#fondo_comment{
+  background-color: rgb(255, 228, 196);
+}
+
+#fondo1_comment{
+  background-color: rgb(198, 255, 196);
+}
+
+#fondo_info{
+  background-image: url("../img/algo3.gif");
+}
+
+.checked{
+  color: rgb(128, 1, 255);
+}
+
 /* #Cantidad{
   
 } */
