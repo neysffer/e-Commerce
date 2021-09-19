@@ -212,7 +212,7 @@ a.custom-card:hover {
 }
 
 #fondo1_comment{
-  background-color: rgb(198, 255, 196);
+  background-color: rgb(255, 228, 196);
 }
 
 #fondo_info{
@@ -227,7 +227,9 @@ a.custom-card:hover {
   
 } */
 
-
+#My_comments_stars span{
+  color: orange;
+}
 
 
 

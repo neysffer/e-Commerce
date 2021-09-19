@@ -5,16 +5,16 @@ var info_product = {};
 let arre_comment = [];
 let comment_data;
 let my_info;
-
+let starko;
 
 function Show_IMG(array){
 
-    let htmlContentToAppend = "";
+    let Su_itchi = "";
 
     for(let i = 0; i < array.length; i++){
         let imageSrc = array[i];
-
-        htmlContentToAppend += `
+        
+        Su_itchi += `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
@@ -22,7 +22,7 @@ function Show_IMG(array){
         </div>
         `
 
-        document.getElementById("Img_prod").innerHTML = htmlContentToAppend;
+        document.getElementById("Img_prod").innerHTML = Su_itchi;
     }
 }
 
@@ -66,7 +66,8 @@ function Show_IMG(array){
 
         let suitchi_1 = "";
 
-        if(comment_data != ""){
+        if(starko >= 1){
+        if(comment_data != undefined){
             /* console.log(comment_data); */
             suitchi_1 += `
             <hr class="my-3">
@@ -75,17 +76,22 @@ function Show_IMG(array){
 
               <p>` + comment_data + `</p>
 
-              <p class= "text-muted">`+ day_and_hour.getFullYear() + `  `+ traer_mes + `  `+ day_and_hour.getDate() +` `+ day_and_hour.getHours() +` `+ day_and_hour.getMinutes() +` `+ day_and_hour.getSeconds() +`</p>
+              <p class= "text-muted">`+ day_and_hour.getFullYear() + `  `+ "-"+ `  `+ traer_mes + ` `+ "-"+ `  `+ day_and_hour.getDate() +`  `+ day_and_hour.getHours() +` `+ ":"+ ` `+ day_and_hour.getMinutes() +` `+ ":"+ ` `+ day_and_hour.getSeconds() +`</p>
 
             </dl>
             `
         }
+
+        for (let q = 1; q <= (starko); q++){ 
+            suitchi_1+= `
+            <span class="fa fa-star checked"></span>
+            `
+            
+        } 
+    
         /* console.log(suitchi_1); */
         document.getElementById("My_comments").innerHTML = suitchi_1;
     }
-
-    function calificar(item){
-
     }
 
 
@@ -108,7 +114,6 @@ document.addEventListener("DOMContentLoaded", async function(e){
             product_cantidad.innerHTML = info_product.soldCount;
             product_ctegoria.innerHTML = info_product.category;
 
-            //Muestro las imagenes en forma de galería
             Show_IMG(info_product.images);
         }
     });
@@ -116,5 +121,28 @@ document.addEventListener("DOMContentLoaded", async function(e){
     const the_comments = (await getJSONData(PRODUCT_INFO_COMMENTS_URL)).data;
         ShowComments(the_comments);
 
+
     document.getElementById("msg_btn").addEventListener("click", Add_comment);
+
+    document.getElementById("1").addEventListener("click", function(){
+        starko = 1;
+    });
+
+    document.getElementById("2").addEventListener("click", function(){
+        starko = 2;
+    });
+
+
+    document.getElementById("3").addEventListener("click", function(){
+        starko = 3;
+    });
+
+    document.getElementById("4").addEventListener("click", function(){
+        starko = 4;
+    });
+
+    document.getElementById("5").addEventListener("click", function(){
+        starko = 5;
+    });
+
 });

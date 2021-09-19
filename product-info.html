@@ -33,8 +33,7 @@
     <main role="main">
       <div class="container mt-5" id="fondo_comment">
         <div class="text-center p-4">
-          <h2>Información del producto</h2>
-         
+           <h2>Información del producto</h2>
         </div>
         <h3 id="Nompre_prod"></h3>
         <hr class="my-3">
@@ -59,7 +58,7 @@
             <p id="Cate_prod"></p>
           </dd>
 
-          <dt>Imágenes ilustrativas</dt>
+          <dt>Imágenes</dt>
           <dd>
             <div class="row text-center text-lg-left pt-2" id="Img_prod">
             </div>
@@ -85,37 +84,46 @@
         <h2>Reseñas</h2>
       </div>
 
-    <div class="container mt-5"><div id="comentarios">  </div> <div id="My_comments"> </div>  </div>
+    <div class="container mt-5"><div id="comentarios">  </div> <div id="My_comments"> </div> <div id="My_comments_stars"> </div> </div>
 
   </main>
 
    <form>
     <div class="container mt-5">
+
+    <h2> &#128591; Dejanos un comentario y tu valoración  &#128591;</h2>
+    
+    <div id="My_comments_stars">
+      <button type="button" class="btn btn-outline-primary" id="1">
+        <span class="fa fa-star checked"></span></button>
+    
+      <button type="button" class="btn btn-outline-primary" id="2">
+        <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span></button>
+    
+      <button type="button" class="btn btn-outline-primary" id="3">
+      <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span></button>
+    
+      <button type="button" class="btn btn-outline-primary" id="4">
+        <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span></button>
+    
+      <button type="button" class="btn btn-outline-primary" id="5">
+        <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span></button>
+    </div>
    <div class="input-group">
+     
     <textarea id="msg" class="form-control"> </textarea>
     <button id="msg_btn" type="button" class="btn btn-success">Enviar</button>
   </div>
-  <div id="My_calif">
-    <span class="fa fa-star"   id="1"></span>
-    <span class="fa fa-star"   id="2"></span>
-    <span class="fa fa-star"   id="3"></span>
-    <span class="fa fa-star"   id="4"></span>
-    <span class="fa fa-star"   id="5"></span>
- </div>
 </div>
+
 </form>
+
 </div>
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
-
-
-  
-
-
-
 
 </body>
 
