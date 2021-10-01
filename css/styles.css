@@ -231,5 +231,13 @@ a.custom-card:hover {
   color: orange;
 }
 
+#Relacion{
+  color: white;
+}
+
+#tarjetas .card{
+  margin-right: 20px;
+  background-color: beige;
+}
 
 

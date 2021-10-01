@@ -54,6 +54,12 @@ function mostrarUser(){
   user_s.innerHTML = JSON.parse(u_ser)[0].user;
 }
 
+function closeSesion(){
+  sessionStorage.removeItem("Base_DATOS");
+}
+
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -61,4 +67,6 @@ document.addEventListener("DOMContentLoaded", function(e){
   ShowPag(JSON.parse(sessionStorage.getItem("Base_DATOS")));
 
   mostrarUser();
+
+  document.getElementById("close").addEventListener("click", closeSesion);
 });
