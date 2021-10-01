@@ -22,8 +22,18 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a id="Usuario" class="py-2 d-none d-md-inline-block" href="my-profile.html"></a>
+<!--       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a id="Usuario" class="py-2 d-none d-md-inline-block" href="my-profile.html"></a> -->
+
+      <div class="dropdown">
+        <button class="btn btn-primary  dropdown-toggle" type="button" id="Usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="cart.html">Carrito</a>
+          <a class="dropdown-item" href="login.html" id="close">Cerrar Sesión</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -93,7 +103,7 @@
 
     <h2> &#128591; Dejanos un comentario y tu valoración  &#128591;</h2>
     
-    <div id="My_comments_stars">
+    <div id="My_comments_stars" data-toggle="button" role="group">
       <button type="button" class="btn btn-outline-primary" id="1">
         <span class="fa fa-star checked"></span></button>
     
@@ -117,6 +127,13 @@
 </div>
 
 </form>
+
+</div>
+
+<div class="container mt-5">
+  <h3 id="Relacion">Productos relacionados:</h3>
+
+      <div class="row text-center text-lg-left pt-2"  id="relationedProducts"> </div>
 
 </div>
 

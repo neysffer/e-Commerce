@@ -7,14 +7,14 @@ let comment_data;
 let my_info;
 let starko;
 
-function Show_IMG(array){
+function show_IMG(array){
 
-    let Su_itchi = "";
+    let su_itchi = "";
 
     for(let i = 0; i < array.length; i++){
         let imageSrc = array[i];
         
-        Su_itchi += `
+        su_itchi += `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
@@ -22,11 +22,11 @@ function Show_IMG(array){
         </div>
         `
 
-        document.getElementById("Img_prod").innerHTML = Su_itchi;
+        document.getElementById("Img_prod").innerHTML = su_itchi;
     }
 }
 
-    function ShowComments(myjsoncomments){
+    function showComments(myjsoncomments){
         let suitchi = "";
         for(let i = 0; i < myjsoncomments.length; i++){
             let info_comments = myjsoncomments[i];
@@ -58,7 +58,7 @@ function Show_IMG(array){
         
     }
 
-    function Add_comment(){
+    function addComments(){
         comment_data = document.getElementById("msg").value;
         my_info = sessionStorage.getItem("Base_DATOS");
         let day_and_hour = new Date();
@@ -95,6 +95,33 @@ function Show_IMG(array){
     }
 
 
+    function relationedProducts(algo){
+        let showProducts = "";
+
+        for(let m = 0; m < info_product.relatedProducts.length; m++){
+            let n = info_product.relatedProducts[m];
+            console.log(n);
+            let imageRelationed = algo[n];
+        
+        
+            showProducts += `  
+                <div id="tarjetas"> 
+                    <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="` + imageRelationed.imgSrc +`" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">`+ imageRelationed.name +`</h5>
+                      <p class="card-text">`+ imageRelationed.description +`</p>
+                      <p class="card-text">`+ imageRelationed.currency +``+ imageRelationed.cost +`</p>
+                      <a href="#" class="btn btn-primary">Ver información</a>
+                    </div>
+                  </div>
+                </div>
+            `
+            document.getElementById("relationedProducts").innerHTML = showProducts;
+        }
+    }
+
+
 document.addEventListener("DOMContentLoaded", async function(e){
 
     getJSONData(PRODUCT_INFO_URL).then(function(a){
@@ -114,15 +141,15 @@ document.addEventListener("DOMContentLoaded", async function(e){
             product_cantidad.innerHTML = info_product.soldCount;
             product_ctegoria.innerHTML = info_product.category;
 
-            Show_IMG(info_product.images);
+            show_IMG(info_product.images);
         }
     });
 
     const the_comments = (await getJSONData(PRODUCT_INFO_COMMENTS_URL)).data;
-        ShowComments(the_comments);
+        showComments(the_comments);
 
 
-    document.getElementById("msg_btn").addEventListener("click", Add_comment);
+    document.getElementById("msg_btn").addEventListener("click", addComments);
 
     document.getElementById("1").addEventListener("click", function(){
         starko = 1;
@@ -144,5 +171,8 @@ document.addEventListener("DOMContentLoaded", async function(e){
     document.getElementById("5").addEventListener("click", function(){
         starko = 5;
     });
+
+    const productsRelations = (await getJSONData(PRODUCTS_URL)).data;
+        relationedProducts(productsRelations);
 
 });
