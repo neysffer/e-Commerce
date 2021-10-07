@@ -11,7 +11,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
+<!-- 
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -27,13 +27,14 @@
         font-size: 3.5rem;
       }
     }
-  </style>
+  </style> -->
+
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
 
-<body>
+<body id="bodyy">
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
@@ -54,14 +55,67 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  
+<!-- <div class="row text-center text-lg-left pt-2" id="cartProductRelationed"> </div> -->
+  <main role="main" >
+    <div class="container mt-5" id="cartProductBuy" >      
+      <hr class="my-3">
+      <dl>
+        <dd>
+          <div id="cartProductIMG"> </div>
+        </dd>
+        <dt id="cartProductName"></dt>
+        <dd>
+        <dt id="totalProducts"></dt>
+        </dd>
+        <div id="probo"></div>
+      </dl>
+      <input type="text" id="addCant">
+      <button type="button" class="btn btn-outline-primary" id="changeCant">Añadir</button>
     </div>
+    <div class="container mt-5" id="cartProductBuy_2" > 
+        <dt>Total</dt>
+        <dt id="costCoin"></dt>
+        <dt id="costUnit"></dt>
+
+        <button type="button" class="btn btn-outline-primary" id="buyBtn">Comprar</button>
+    </div>
+  </main>
+
+<!-- <div class="container mt-5">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    </ol>
+    
+      <div class="carousel-inner" id="cartProductRelationed"> </div>
+  
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
+</div> -->
+
+
+
+<!-- Prueba xd -->
+
+<div class="wrapper">
+  <div class="outer" id="cartProductRelationed">
+   
+  </div>
+</div>
+
+<!-- fin prueba xd -->
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
