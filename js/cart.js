@@ -14,7 +14,9 @@ document.addEventListener("DOMContentLoaded", async function(e)
             let cartProduct_name = document.getElementById("cartProductName");
             let cartProduct_img = document.getElementById("cartProductIMG");
             let cartProduct_total = document.getElementById("totalProducts");
-            
+            let cartProduct_cost = document.getElementById("coin");
+
+            cartProduct_cost.innerHTML = "Costo por unidad:" + " " + cartProduct[`articles`][0].currency + cartProduct[`articles`][0].unitCost;
             cartProduct_name.innerHTML = cartProduct[`articles`][0].name;
             cartProduct_img.innerHTML = `<p><img  src="` + cartProduct[`articles`][0].src + `"></img> </p>`
             cartProduct_total.innerHTML = "Cantidad:" + " " + cartProduct[`articles`][0].count;
