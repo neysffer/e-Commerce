@@ -256,16 +256,18 @@ a.custom-card:hover {
 }
 
 #cartProductBuy_2{
-  background-color: beige;
-  width: 500px;
-  margin-left: 20px;
+  background-image: url("../img/algo.gif");
+  width: 400px;
+  margin-left: 500px;
   text-align: right;
+  color: white;
+  background-size: 650px;
  }
 
 
- #cartProductBuy_2 dt{
+/*  #cartProductBuy_2 dt{
    text-align: left;
- }
+ } */
 
  #probo img{
    height: 130px;
@@ -281,17 +283,23 @@ a.custom-card:hover {
  width: 50%;
  } */
 
+ 
 #bodyy{
-  background-image: url("/img/algo3.gif");
+  background-image: url("../img/algo3.gif");
+}
+
+#bodyy main{
+  display: flex;
 }
 
 .wrapper .outer{
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: center;
+ 
 }
 .wrapper .card{
-  background: #fff;
+  background: rgb(255, 255, 255);
   width: 430px;
   display: flex;
   align-items: center;
