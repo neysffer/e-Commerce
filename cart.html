@@ -28,7 +28,7 @@
       }
     }
   </style> -->
-
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
@@ -57,30 +57,109 @@
   </nav>
   
 <!-- <div class="row text-center text-lg-left pt-2" id="cartProductRelationed"> </div> -->
-  <main role="main" >
+  <main class="main">
     <div class="container mt-5" id="cartProductBuy" >      
       <hr class="my-3">
-      <dl>
+      <table>
         <dd>
-          <div id="cartProductIMG"> </div>
+          <div class="container"id="gg" data-toggle="button" role="group">
+            <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
+          </div>
+          <div id="cartProductIMG">  </div>
         </dd>
+        <div id="infoRight">
         <dt id="cartProductName"></dt>
         <dt id="coin"></dt>
         <dd>
         <dt id="totalProducts"></dt>
         </dd>
-        <div id="probo"></div>
-      </dl>
+        <dd>
+          <dt id="subTotal"></dt>
+        </dd>
+        </div>
+      </table>
       <input type="text" id="addCant">
       <button type="button" class="btn btn-outline-primary" id="changeCant">Añadir</button>
+      <br><br>
+      <div id="probo"></div>
     </div>
-    <div class="container mt-5" id="cartProductBuy_2" > 
-        <dt>Total</dt>
-        <dt id="costUnit"></dt>
 
-        <button type="button" class="btn btn-light" id="buyBtn">Comprar</button>
+   <div class="container">
+    <div class="container mt-5" id="cartProductBuy_2" > 
+      <hr class="my-3">
+      <hr class="my-3">
+      <form>
+        <div class="form-group"> <label>¿Tienes cupón de descuento?</label>
+            <div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Código del cupón"> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Añadir</button> </span> </div>
+        </div>
+    </form>
+        <table>
+          <tr>
+            <th>IVA:</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>Envío:</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>Descuento:</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th><dt>Total:</dt></th>
+            <td><dt id="costUnit"></dt></td>
+          </tr>
+        </table> 
+        <br>
+        <div  data-toggle="button" role="group">
+        <button type="button" class="btn btn-outline-primary"><img src="img/cardMaster.png" id="cardMaster"></button>
+        <button type="button" class="btn btn-outline-primary"><img src="img/cardVisa.png" id="cardVisa"></button>
+        <button type="button" class="btn btn-outline-primary"><img src="img/cardPay.png" id="cardPay"></button>
+        </div>
+        <br>
+        <br>
+
+          <button class="cart-button" id="buyBtn"> <span class="add-to-cart">Comprar</span> <span class="added">Confirmado</span> <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button> 
+        
+          <br>
+        <br>
     </div>
-  </main>
+  </div>
+  </main> 
+
+ 
+ 
+    
+<!-- Prueba xd -->
+<div id="carouselCars"></div>
+<div class="container">
+<div class="container-fluid">
+  <div class="wrapper">
+    <div class="outer" id="cartProductRelationed">
+     
+    </div>
+  </div>
+  </div>
+</div>
+<!-- fin prueba xd -->
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>
 
 <!-- <div class="container mt-5">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -103,32 +182,3 @@
     </a>
   </div>
 </div> -->
-
-
-
-<!-- Prueba xd -->
-
-<div class="wrapper">
-  <div class="outer" id="cartProductRelationed">
-   
-  </div>
-</div>
-
-<!-- fin prueba xd -->
-
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-</body>
-
-</html>

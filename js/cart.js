@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", async function(e)
             cartProduct_total.innerHTML = "Cantidad:" + " " + cartProduct[`articles`][0].count;
             pineCount = (cartProduct[`articles`][0].count)*(cartProduct[`articles`][0].unitCost);
 
+            document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][0].currency + (cartProduct[`articles`][0].count)*(cartProduct[`articles`][0].unitCost));
             document.getElementById("costUnit").innerHTML = (cartProduct[`articles`][0].currency + (cartProduct[`articles`][0].count)*(cartProduct[`articles`][0].unitCost));
 
         }
@@ -36,9 +37,23 @@ document.addEventListener("DOMContentLoaded", async function(e)
     document.getElementById("01").addEventListener("click", addCartCars1);
     document.getElementById("11").addEventListener("click", addCartCars2);
     document.getElementById("21").addEventListener("click", addCartCars3);
+
+
+    const cartButtons = document.querySelectorAll('.cart-button');
+    
+    cartButtons.forEach(button => {
+    
+    button.addEventListener('click',cartClick);
+    
+    });
+    
+  
    
 });
-
+function cartClick(){
+    let button =this;
+    button.classList.add('clicked');
+    }
 /* function showRelationedProducts(pine)
 {
     console.log(pine);
@@ -112,6 +127,7 @@ function changeCartCant(){
     value = document.getElementById("addCant").value;
 
     document.getElementById("totalProducts").innerHTML = "Cantidad:" + value;
+    document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][0].currency + (value)*(cartProduct[`articles`][0].unitCost));
     document.getElementById("costUnit").innerHTML = (cartProduct[`articles`][0].currency + (value)*(cartProduct[`articles`][0].unitCost));
 }
 
@@ -124,7 +140,12 @@ function addCartCars(){
             prub += `
                 <img src="`+ arre[0].img+`">
                 <dt>`+ arre[0].nam +`</dt>
-                <dt>`+ arre[0].curr +` `+ arre[0].cosT +`</dt>
+                <dt>`+ "Costo por unidad:" +``  + arre[0].curr +` `+ arre[0].cosT +`</dt>
+                <dt> Cantidad: </dt>
+                <dt>`+ "Subtotal:" +``  + arre[0].curr +` `+ arre[0].cosT +`</dt>
+                <input type="text" id="addCantCars">
+                <button type="button" class="btn btn-outline-primary" id="changeCant">Añadir</button>
+                <br><br>
             `
         
             document.getElementById("probo").innerHTML = prub;
@@ -139,7 +160,12 @@ function addCartCars1(){
             prub += `
                 <img src="`+ arre[1].img+`">
                 <dt>`+ arre[1].nam +`</dt>
-                <dt>`+ arre[1].curr +` `+ arre[1].cosT +`</dt>
+                <dt>`+ "Costo por unidad:" +``+ arre[1].curr +` `+ arre[1].cosT +`</dt>
+                <dt> Cantidad: </dt>
+                <dt>`+ "Subtotal:" +``+ arre[1].curr +` `+ arre[1].cosT +`</dt>
+                <input type="text" id="addCantCars">
+                <button type="button" class="btn btn-outline-primary" id="changeCant">Añadir</button>
+                <br><br>
             `
         
             document.getElementById("probo").innerHTML = prub;
@@ -154,7 +180,12 @@ function addCartCars2(){
             prub += `
                 <img src="`+ arre[2].img+`">
                 <dt>`+ arre[2].nam +`</dt>
-                <dt>`+ arre[2].curr +` `+ arre[2].cosT +`</dt>
+                <dt>`+ "Costo por unidad:" +`` + arre[2].curr +` `+ arre[2].cosT +`</dt>
+                <dt> Cantidad: </dt>
+                <dt>`+ "Subtotal:" +`` + arre[2].curr +` `+ arre[2].cosT +`</dt>
+                <input type="text" id="addCantCars">
+                <button type="button" class="btn btn-outline-primary" id="changeCant">Añadir</button>
+                <br><br>
             `
         
             document.getElementById("probo").innerHTML = prub;
@@ -169,7 +200,12 @@ function addCartCars3(){
             prub += `
                 <img src="`+ arre[3].img+`">
                 <dt>`+ arre[3].nam +`</dt>
-                <dt>`+ arre[3].curr +` `+ arre[3].cosT +`</dt>
+                <dt>`+ "Costo por unidad:" +`` + arre[3].curr +` `+ arre[3].cosT +`</dt>
+                <dt> Cantidad: </dt>
+                <dt>`+ "Subtotal:" +`` + arre[3].curr +` `+ arre[3].cosT +`</dt>
+                <input type="text" id="addCantCars">
+                <button type="button" class="btn btn-outline-primary" id="changeCant">Añadir</button>
+                <br><br>
             `
         
             document.getElementById("probo").innerHTML = prub;
@@ -177,3 +213,10 @@ function addCartCars3(){
 
             
 }
+
+
+
+
+   
+    
+    
