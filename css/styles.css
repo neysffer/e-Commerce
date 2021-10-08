@@ -242,42 +242,52 @@ a.custom-card:hover {
 
 /* #cartProductRelationed{
   float:left;
-  
 } */
 
+
+#gg{
+  text-align: right;
+}
+
+.container{
+  border-radius: 5%;
+}
+
 #cartProductBuy{
- background-color:  beige;
+ background: linear-gradient(to bottom, rgb(250, 228, 201) 0%, rgb(247, 223, 120) 100%); 
  width: 500px;
  margin-left: 20px;
 }
 
 #cartProductBuy img{
-  border-radius: 30%;
+  border-radius: 10%;
 }
 
 #cartProductBuy_2{
-  background-image: url("../img/algo.gif");
+  background: linear-gradient(to bottom, rgb(250, 228, 201) 0%, rgb(247, 223, 120) 100%); 
   width: 400px;
-  margin-left: 500px;
-  text-align: right;
-  color: white;
-  background-size: 650px;
+  margin-left: 50px;
+  color: black;
  }
 
 
-/*  #cartProductBuy_2 dt{
-   text-align: left;
- } */
-
+ #cardMaster{
+   height: 50px;
+   width: 96px;
+}
+#cardVisa{
+  height: 50px;
+  width: 60px;
+ }
+ #cardPay{
+  height: 50px;
+  width: 120px;
+ }
+ 
  #probo img{
    height: 130px;
    width: 160px;
  }
-
-
-/* #cartProductName{
-  text-align: right;
-} */
 
 /* .carousel {
  width: 50%;
@@ -290,13 +300,13 @@ a.custom-card:hover {
 
 #bodyy main{
   display: flex;
+
 }
 
 .wrapper .outer{
-  display: flex;
+  display:flex;
   align-items: center;
-  justify-content: center;
- 
+  justify-content:right;
 }
 .wrapper .card{
   background: rgb(255, 255, 255);
@@ -380,4 +390,138 @@ a.custom-card:hover {
 .card a:hover{
   transform: scale(0.94);
 }
+
+.buttons {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-button {
+  position: relative;
+  outline: 0;
+  background-color: blue;
+  color: #fff;
+  border: none;
+  height: 48px;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  line-height: 0px;
+  overflow: hidden;
+  cursor: pointer
+}
+
+.cart-button:focus {
+  outline: none !important
+}
+
+.cart-button .fa-shopping-cart {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: -20%;
+  font-size: 1.8em;
+  transform: translate(-50%, -50%)
+}
+
+.cart-button .fa-square {
+  position: absolute;
+  z-index: 1;
+  top: -20%;
+  left: 53%;
+  font-size: 0.8em;
+  transform: translate(-50%, -50%)
+}
+
+.cart-button span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #fff;
+  transform: translate(-50%, -50%)
+}
+
+.cart-button span.added {
+  opacity: 0
+}
+
+.cart-button.clicked .fa-shopping-cart {
+  animation: cart 2s ease-in forwards
+}
+
+.cart-button.clicked .fa-square {
+  animation: box 2s ease-in forwards
+}
+
+.cart-button.clicked span.add-to-cart {
+  animation: addcart 2s ease-in forwards
+}
+
+.cart-button.clicked span.added {
+  animation: added 2s ease-in forwards
+}
+
+@keyframes cart {
+  0% {
+      left: -10%
+  }
+
+  40%,
+  60% {
+      left: 50%
+  }
+
+  100% {
+      left: 110%
+  }
+}
+
+@keyframes box {
+
+  0%,
+  40% {
+      top: -20%
+  }
+
+  60% {
+      top: 36%;
+      left: 53%
+  }
+
+  100% {
+      top: 40%;
+      left: 112%
+  }
+}
+
+@keyframes addcart {
+
+  0%,
+  30% {
+      opacity: 1
+  }
+
+  30%,
+  100% {
+      opacity: 0
+  }
+}
+
+@keyframes added {
+
+  0%,
+  80% {
+      opacity: 0
+  }
+
+  100% {
+      opacity: 1
+  }
+}
+
+
 
