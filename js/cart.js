@@ -138,14 +138,29 @@ function addCartCars(){
     let mix = pineCount + cont;
 
             prub += `
-                <img src="`+ arre[0].img+`">
-                <dt>`+ arre[0].nam +`</dt>
-                <dt>`+ "Costo por unidad:" +``  + arre[0].curr +` `+ arre[0].cosT +`</dt>
-                <dt> Cantidad: </dt>
-                <dt>`+ "Subtotal:" +``  + arre[0].curr +` `+ arre[0].cosT +`</dt>
-                <input type="text" id="addCantCars">
-                <button type="button" class="btn btn-outline-primary" id="changeCant">Añadir</button>
-                <br><br>
+                <div class="row text-muted"> `+ arre[0].nam +`</div>
+                <div class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                        <div class="col-2"> <img src="`+ arre[0].img+`"></div>
+                            <div class="col">
+                                 <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[0].curr +` `+ arre[0].cosT +`</div>
+                                 <div class="row"> Cantidad: </div>
+                                 <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[0].curr +` `+ arre[0].cosT +`</div>
+                            </div>
+                                <div class="col"> 
+                                    <div class="col" id="gg2" data-toggle="button" role="group">
+                                    <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
+                                </div>
+                                <br>
+                                <div class="col" id="checkOut2">
+                                    <input type="text" id="addCantCars2" placeholder="Cantidad">
+                                    <button type="button" class="btn btn-outline-primary" id="changeCant2">Añadir</button>
+                                    <br><br>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
             `
         
             document.getElementById("probo").innerHTML = prub;
@@ -158,14 +173,29 @@ function addCartCars1(){
     let mix = pineCount + cont;
 
             prub += `
-                <img src="`+ arre[1].img+`">
-                <dt>`+ arre[1].nam +`</dt>
-                <dt>`+ "Costo por unidad:" +``+ arre[1].curr +` `+ arre[1].cosT +`</dt>
-                <dt> Cantidad: </dt>
-                <dt>`+ "Subtotal:" +``+ arre[1].curr +` `+ arre[1].cosT +`</dt>
-                <input type="text" id="addCantCars">
-                <button type="button" class="btn btn-outline-primary" id="changeCant">Añadir</button>
-                <br><br>
+            <div class="row text-muted"> `+ arre[1].nam +`</div>
+            <div class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                    <div class="col-2"> <img src="`+ arre[1].img+`"></div>
+                        <div class="col">
+                             <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[1].curr +` `+ arre[1].cosT +`</div>
+                             <div class="row"> Cantidad: </div>
+                             <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[1].curr +` `+ arre[1].cosT +`</div>
+                        </div>
+                            <div class="col"> 
+                                <div class="col" id="gg2" data-toggle="button" role="group">
+                                <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
+                            </div>
+                            <br>
+                            <div class="col" id="checkOut2">
+                                <input type="text" id="addCantCars2" placeholder="Cantidad">
+                                <button type="button" class="btn btn-outline-primary" id="changeCant2">Añadir</button>
+                                <br><br>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
             `
         
             document.getElementById("probo").innerHTML = prub;
@@ -178,14 +208,29 @@ function addCartCars2(){
     let mix = pineCount + cont;
 
             prub += `
-                <img src="`+ arre[2].img+`">
-                <dt>`+ arre[2].nam +`</dt>
-                <dt>`+ "Costo por unidad:" +`` + arre[2].curr +` `+ arre[2].cosT +`</dt>
-                <dt> Cantidad: </dt>
-                <dt>`+ "Subtotal:" +`` + arre[2].curr +` `+ arre[2].cosT +`</dt>
-                <input type="text" id="addCantCars">
-                <button type="button" class="btn btn-outline-primary" id="changeCant">Añadir</button>
-                <br><br>
+            <div class="row text-muted"> `+ arre[2].nam +`</div>
+            <div class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                    <div class="col-2"> <img src="`+ arre[2].img+`"></div>
+                        <div class="col">
+                             <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[2].curr +` `+ arre[2].cosT +`</div>
+                             <div class="row"> Cantidad: </div>
+                             <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[2].curr +` `+ arre[2].cosT +`</div>
+                        </div>
+                            <div class="col"> 
+                                <div class="col" id="gg2" data-toggle="button" role="group">
+                                <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
+                            </div>
+                            <br>
+                            <div class="col" id="checkOut2">
+                                <input type="text" id="addCantCars2" placeholder="Cantidad">
+                                <button type="button" class="btn btn-outline-primary" id="changeCant2">Añadir</button>
+                                <br><br>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
             `
         
             document.getElementById("probo").innerHTML = prub;
@@ -198,14 +243,29 @@ function addCartCars3(){
     let mix = pineCount + cont;
 
             prub += `
-                <img src="`+ arre[3].img+`">
-                <dt>`+ arre[3].nam +`</dt>
-                <dt>`+ "Costo por unidad:" +`` + arre[3].curr +` `+ arre[3].cosT +`</dt>
-                <dt> Cantidad: </dt>
-                <dt>`+ "Subtotal:" +`` + arre[3].curr +` `+ arre[3].cosT +`</dt>
-                <input type="text" id="addCantCars">
-                <button type="button" class="btn btn-outline-primary" id="changeCant">Añadir</button>
-                <br><br>
+            <div class="row text-muted"> `+ arre[3].nam +`</div>
+            <div class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                    <div class="col-2"> <img src="`+ arre[3].img+`"></div>
+                        <div class="col">
+                             <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[3].curr +` `+ arre[3].cosT +`</div>
+                             <div class="row"> Cantidad: </div>
+                             <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[3].curr +` `+ arre[3].cosT +`</div>
+                        </div>
+                            <div class="col"> 
+                                <div class="col" id="gg2" data-toggle="button" role="group">
+                                <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
+                            </div>
+                            <br>
+                            <div class="col" id="checkOut2">
+                                <input type="text" id="addCantCars2" placeholder="Cantidad">
+                                <button type="button" class="btn btn-outline-primary" id="changeCant2">Añadir</button>
+                                <br><br>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
             `
         
             document.getElementById("probo").innerHTML = prub;
