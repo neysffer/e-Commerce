@@ -56,8 +56,133 @@
     </div>
   </nav>
   
+ <!-- Probando nuevo estilo -->
+ <div id="prubCart">
+ <div class="card">
+  <div class="row">
+      <div class="col-md-8 cart">
+          <div class="title">
+              <div class="row">
+                  <div class="col">
+                      <h4><b>Mi Carrito</b></h4>
+                  </div>
+              </div>
+          </div>
+          <div class="row text-muted" id="cartProductName">  </div>
+          <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                  <div class="col-2" id="cartProductIMG"></div>
+                  <div class="col">
+                    <div class="row"  id="coin"></div>
+                    <div class="row"  id="totalProducts"></div>
+                    <div class="row"  id="subTotal"></div>
+                  </div>
+                  <div class="col">       
+                    <div class="col" id="gg" data-toggle="button" role="group">
+                      <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
+                    </div>
+                    <br>
+                    <div class="col" id="checkOut">
+                      <input type="text" id="addCant" placeholder="Cantidad">
+                      <button type="button" class="btn btn-outline-primary" id="changeCant">Añadir</button>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div id="probo"></div>
+          <div class="back-to-shop"><a href="products.html">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+      </div>
+      <div class="col-md-4 summary" id="buyCart">
+          <div>
+              <h5><b>Resumen de la compra</b></h5>
+          </div>
+          <hr>
+          <form>
+            <p>Código de descuento</p> <input id="code" placeholder="Ingresa el código">
+            <p>Envío</p> <select>
+              <option class="text-muted">-</option>
+              <option class="text-muted">Standard-Delivery- UYU 5</option>
+              <option class="text-muted">Express-Delivery- UYU 10</option>
+              <option class="text-muted">Premium-Delivery- UYU 15</option>
+          </select>
+              <p>Tarjetas</p> 
+                <div  data-toggle="button" role="group">
+                  <button type="button" class="btn btn-outline-primary"><img src="img/cardMaster.png" id="cardMaster"></button>
+                  <button type="button" class="btn btn-outline-primary"><img src="img/cardVisa.png" id="cardVisa"></button>
+                  <button type="button" class="btn btn-outline-primary"><img src="img/cardPay.png" id="cardPay"></button>
+                  </div>
+              
+          </form>
+          <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+              <div class="col">TOTAL + IVA</div>
+              <div class="col text-right" id="costUnit"></div>
+          </div> 
+          <div id="btnAnimated">
+            <button class="cart-button" id="buyBtn"> <span class="add-to-cart">Comprar</span> <span class="added">Confirmado</span> <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+ <!-- Fin Probando nuevo estilo -->
+ 
+    
+<!-- Prueba xd -->
+<div id="carouselCars">
+<div class="container">
+<div class="container-fluid">
+  <div class="wrapper">
+    <div class="outer" id="cartProductRelationed">
+     
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+<!-- fin prueba xd -->
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>
+
+<!-- <div class="container mt-5">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    </ol>
+    
+      <div class="carousel-inner" id="cartProductRelationed"> </div>
+  
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div> -->
+
+
 <!-- <div class="row text-center text-lg-left pt-2" id="cartProductRelationed"> </div> -->
-  <main class="main">
+<!--   <main class="main">
     <div class="container mt-5" id="cartProductBuy" >      
       <hr class="my-3">
       <table>
@@ -119,66 +244,11 @@
         </div>
         <br>
         <br>
-
+<div id="btnAnimated">
           <button class="cart-button" id="buyBtn"> <span class="add-to-cart">Comprar</span> <span class="added">Confirmado</span> <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button> 
-        
+        </div>
           <br>
         <br>
     </div>
   </div>
   </main> 
-
- 
- 
-    
-<!-- Prueba xd -->
-<div id="carouselCars"></div>
-<div class="container">
-<div class="container-fluid">
-  <div class="wrapper">
-    <div class="outer" id="cartProductRelationed">
-     
-    </div>
-  </div>
-  </div>
-</div>
-<!-- fin prueba xd -->
-
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-</body>
-
-</html>
-
-<!-- <div class="container mt-5">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    </ol>
-    
-      <div class="carousel-inner" id="cartProductRelationed"> </div>
-  
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div> -->

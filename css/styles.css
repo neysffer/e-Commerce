@@ -245,33 +245,29 @@ a.custom-card:hover {
 } */
 
 
-#gg{
-  text-align: right;
-}
-
-.container{
+/*.container{
   border-radius: 5%;
-}
+} */
 
-#cartProductBuy{
+/* #cartProductBuy{
  background: linear-gradient(to bottom, rgb(250, 228, 201) 0%, rgb(247, 223, 120) 100%); 
  width: 500px;
  margin-left: 20px;
-}
+} */
 
-#cartProductBuy img{
+/* #cartProductBuy img{
   border-radius: 10%;
-}
+} */
 
-#cartProductBuy_2{
+/* #cartProductBuy_2{
   background: linear-gradient(to bottom, rgb(250, 228, 201) 0%, rgb(247, 223, 120) 100%); 
   width: 400px;
   margin-left: 50px;
   color: black;
- }
+ } */
 
 
- #cardMaster{
+#cardMaster{
    height: 50px;
    width: 96px;
 }
@@ -298,19 +294,23 @@ a.custom-card:hover {
   background-image: url("../img/algo3.gif");
 }
 
-#bodyy main{
+/* #bodyy main{
   display: flex;
 
+} */
+
+#carouselCars{
+  margin-top: 350px;
 }
 
-.wrapper .outer{
+#carouselCars .wrapper .outer{
   display:flex;
   align-items: center;
-  justify-content:right;
+  justify-content:left;
 }
-.wrapper .card{
+#carouselCars .wrapper .card{
   background: rgb(255, 255, 255);
-  width: 430px;
+  width: 300px;
   display: flex;
   align-items: center;
   padding: 20px;
@@ -323,10 +323,10 @@ a.custom-card:hover {
   animation: animate 15s linear infinite;
   animation-delay: calc(3s * var(--delay));
 }
-.outer:hover .card{
+#carouselCars .outer:hover .card{
   animation-play-state: paused;
 }
-.wrapper .card:last-child{
+#carouselCars .wrapper .card:last-child{
   animation-delay: calc(-3s * var(--delay));
 }
 @keyframes animate {
@@ -352,11 +352,11 @@ a.custom-card:hover {
     transform: translateY(-100%) scale(0.5);
   }
 }
-.card .content{
+#carouselCars .card .content{
   display: flex;
   align-items: center;
 }
-.wrapper .card .img{
+#carouselCars .wrapper .card .img{
   height: 100px;
   width: 100px;
   position: absolute;
@@ -366,7 +366,7 @@ a.custom-card:hover {
   padding: 5px;
   box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
 }
-.card .img img{
+#carouselCars .card .img img{
   height: 100%;
   width: 100%;
   border-radius: 50%;
@@ -375,32 +375,33 @@ a.custom-card:hover {
 .card .details{
   margin-left: 80px;
 }
-.details span{
+#carouselCars .details span{
   font-weight: 600;
   font-size: 18px;
 }
-.card button{
+#carouselCars .card button{
   text-decoration: none;
-  padding: 7px 18px;
+  padding: 5px 8px;
   border-radius: 25px;
   color: #fff;
   background: linear-gradient(to bottom, #bea2e7 0%, #86b7e7 100%);
   transition: all 0.3s ease;
 }
-.card a:hover{
+#carouselCars .card a:hover{
   transform: scale(0.94);
 }
 
-.buttons {
+
+#btnAnimated .buttons {
   margin: 0;
   padding: 0;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} 
 
-.cart-button {
+#btnAnimated .cart-button {
   position: relative;
   outline: 0;
   background-color: blue;
@@ -415,11 +416,11 @@ a.custom-card:hover {
   cursor: pointer
 }
 
-.cart-button:focus {
+#btnAnimated .cart-button:focus {
   outline: none !important
 }
 
-.cart-button .fa-shopping-cart {
+#btnAnimated .cart-button .fa-shopping-cart {
   position: absolute;
   z-index: 2;
   top: 50%;
@@ -428,7 +429,7 @@ a.custom-card:hover {
   transform: translate(-50%, -50%)
 }
 
-.cart-button .fa-square {
+#btnAnimated .cart-button .fa-square {
   position: absolute;
   z-index: 1;
   top: -20%;
@@ -437,7 +438,7 @@ a.custom-card:hover {
   transform: translate(-50%, -50%)
 }
 
-.cart-button span {
+#btnAnimated .cart-button span {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -445,23 +446,23 @@ a.custom-card:hover {
   transform: translate(-50%, -50%)
 }
 
-.cart-button span.added {
+#btnAnimated .cart-button span.added {
   opacity: 0
 }
 
-.cart-button.clicked .fa-shopping-cart {
+#btnAnimated .cart-button.clicked .fa-shopping-cart {
   animation: cart 2s ease-in forwards
 }
 
-.cart-button.clicked .fa-square {
+#btnAnimated .cart-button.clicked .fa-square {
   animation: box 2s ease-in forwards
 }
 
-.cart-button.clicked span.add-to-cart {
+#btnAnimated .cart-button.clicked span.add-to-cart {
   animation: addcart 2s ease-in forwards
 }
 
-.cart-button.clicked span.added {
+#btnAnimated .cart-button.clicked span.added {
   animation: added 2s ease-in forwards
 }
 
@@ -522,6 +523,166 @@ a.custom-card:hover {
       opacity: 1
   }
 }
+ 
+
+
+/* probando nuevo estilo */
+ #prubCart .title {
+  margin-bottom: 5vh
+}
+
+#prubCart{
+  float:left ;
+  margin-left: 100px;
+  margin-top: 40px;
+}
+
+#prubCart .card {
+  margin: auto;
+  width: 1100px;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
+}
+
+@media(max-width:767px) {
+  .card {
+      margin: 3vh auto
+  }
+}
+
+#prubCart .cart {
+  background-color: #fff;
+  padding: 4vh 5vh;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem
+}
+
+@media(max-width:767px) {
+  .cart {
+      padding: 4vh;
+      border-bottom-left-radius: unset;
+      border-top-right-radius: 1rem
+  }
+}
+
+#prubCart .summary {
+  background-color: rgb(109, 250, 243);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh;
+  color: rgb(65, 65, 65)
+}
+
+@media(max-width:767px) {
+  .summary {
+      border-top-right-radius: unset;
+      border-bottom-left-radius: 1rem
+  }
+}
+
+#prubCart .summary .col-2 {
+  padding: 0
+}
+
+#prubCart .summary .col-10 {
+  padding: 0
+}
+
+#prubCart .row {
+  margin: 0
+}
+
+#prubCart .title b {
+  font-size: 1.5rem
+}
+
+#prubCart .main {
+  margin: 0;
+  padding: 2vh 0;
+  width: 100%
+}
+
+#prubCart .col-2,
+.col {
+  padding: 0 1vh
+}
+
+#prubCart a {
+  padding: 0 1vh
+}
+
+#prubCart .close {
+  margin-left: auto;
+  font-size: 0.7rem
+}
+
+#prubCart img {
+  width: 4.5rem
+}
+
+#prubCart .back-to-shop {
+  margin-top: 4.5rem
+}
+
+#prubCart h5 {
+  margin-top: 4vh
+}
+
+#prubCart hr {
+  margin-top: 1.25rem
+}
+
+#prubCart form {
+  padding: 2vh 0
+}
+
+#prubCart select {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 1.5vh 1vh;
+  margin-bottom: 4vh;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247)
+}
+
+#buyCart input {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 1vh;
+  margin-bottom: 4vh;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247)
+}
+
+#buyCart input:focus::-webkit-input-placeholder {
+  color: transparent
+}
+
+/* #cartProductName{
+  font-size: 15px;
+} */
+
+#code {
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: center;
+}
+
+#checkOut, #checkOut2{
+  text-align: right;
+}
+
+#addCant, #addCantCars2{
+  width: 75px;
+  margin-left: 25px;
+}
+
+#gg, #gg2{
+  text-align: right;
+}
 
 
 
+/* fin probando nuevo estilo */
