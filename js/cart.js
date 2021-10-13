@@ -1,8 +1,10 @@
 let cartProduct;
 let arre = [];
+let arrePrice = [];
 let g = -1;
 let value;
 let pineCount;
+let prub2 = "";
 
 document.addEventListener("DOMContentLoaded", async function(e)
 {
@@ -46,44 +48,15 @@ document.addEventListener("DOMContentLoaded", async function(e)
     button.addEventListener('click',cartClick);
     
     });
-    
-  
    
 });
+
+
 function cartClick(){
     let button =this;
     button.classList.add('clicked');
     }
-/* function showRelationedProducts(pine)
-{
-    console.log(pine);
-    let su_itchi = "";
-    let m = 0;
-    
-    for(let i = 0; i < pine.length; i++){
-        let imageSrc = pine[i];
-        console.log(i);
-        if(m == 0)
-        {
-            su_itchi += `
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="`+ imageSrc.imgSrc +`">
-            </div>
-            `
-            m = 1;
-        }else if(m == 1){
-            su_itchi += `
-            <div class="carousel-item">
-                <img class="d-block w-100" src="`+ imageSrc.imgSrc +`">
-            </div>
-            `
-        }
-            
-        
-        document.getElementById("cartProductRelationed").innerHTML = su_itchi;
-    }
- 
-} */
+
 
 function showRelationedProducts(pine)
 {
@@ -118,7 +91,6 @@ function showRelationedProducts(pine)
          
         document.getElementById("cartProductRelationed").innerHTML = su_itchi;
     }
-    console.log((arre[0].cosT)*43.3264);
     
 }
 
@@ -136,35 +108,44 @@ function addCartCars(){
     let prub = "";
     let cont = (arre[0].cosT)*43;
     let mix = pineCount + cont;
-
-            prub += `
-                <div class="row text-muted"> `+ arre[0].nam +`</div>
-                <div class="row border-top border-bottom">
-                    <div class="row main align-items-center">
-                        <div class="col-2"> <img src="`+ arre[0].img+`"></div>
-                            <div class="col">
-                                 <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[0].curr +` `+ arre[0].cosT +`</div>
-                                 <div class="row"> Cantidad: </div>
-                                 <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[0].curr +` `+ arre[0].cosT +`</div>
-                            </div>
-                                <div class="col"> 
-                                    <div class="col" id="gg2" data-toggle="button" role="group">
-                                    <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
+  
+                prub += `
+                    <div class="row text-muted"> `+ arre[0].nam +`</div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"> <img src="`+ arre[0].img+`"></div>
+                                <div class="col">
+                                    <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[0].curr +` `+ arre[0].cosT +`</div>
+                                    <div class="row"> Cantidad: </div>
+                                    <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[0].curr +` `+ arre[0].cosT +`</div>
                                 </div>
-                                <br>
-                                <div class="col" id="checkOut2">
-                                    <input type="text" id="addCantCars2" placeholder="Cantidad">
-                                    <button type="button" class="btn btn-outline-primary" id="changeCant2">Añadir</button>
-                                    <br><br>
-                                </div> 
+                                    <div class="col"> 
+                                        <div class="col" id="gg2" data-toggle="button" role="group">
+                                        <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
+                                    </div>
+                                    <br>
+                                    <div class="col" id="checkOut2">
+                                        <input type="text" id="addCantCars2" placeholder="Cantidad">
+                                        <button type="button" class="btn btn-outline-primary" id="changeCant2">Añadir</button>
+                                        <br><br>
+                                    </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            `
+                `
         
-            document.getElementById("probo").innerHTML = prub;
-            document.getElementById("costUnit").innerHTML = ("UYU" + mix);
+                if( prub2 == ""){
+                    prub2  += prub;
+                    document.getElementById("probo").innerHTML = prub2;
+                    document.getElementById("costUnit").innerHTML = ("UYU" + mix);
+                    arrePrice[0]= mix;
+                }else{
+                    prub2  += prub;
+                    document.getElementById("probo").innerHTML = prub2;
+                    arrePrice[arrePrice.length] = mix;
+                    showTotalPrice(arrePrice);
+                }        
 }
 
 function addCartCars1(){
@@ -198,8 +179,17 @@ function addCartCars1(){
             </div>
             `
         
-            document.getElementById("probo").innerHTML = prub;
-            document.getElementById("costUnit").innerHTML = ("UYU" + mix);
+            if( prub2 == ""){
+                prub2 += prub;
+                document.getElementById("probo").innerHTML = prub2;
+                document.getElementById("costUnit").innerHTML = ("UYU" + mix);
+                arrePrice[0] = mix;
+            }else{
+                prub2 += prub;
+                document.getElementById("probo").innerHTML = prub2;
+                arrePrice[arrePrice.length] = mix;
+                showTotalPrice(arrePrice);
+            }
 }
 
 function addCartCars2(){
@@ -232,9 +222,17 @@ function addCartCars2(){
                 </div>
             </div>
             `
-        
-            document.getElementById("probo").innerHTML = prub;
-            document.getElementById("costUnit").innerHTML = ("UYU" + mix);
+            if( prub2 == ""){
+                prub2 += prub;
+                document.getElementById("probo").innerHTML = prub2;
+                document.getElementById("costUnit").innerHTML = ("UYU" + mix);
+                arrePrice[0] = mix;
+            }else{
+                prub2 += prub;
+                document.getElementById("probo").innerHTML = prub2;
+                arrePrice[arrePrice.length] = mix;
+                showTotalPrice(arrePrice);
+            }
 }
 
 function addCartCars3(){
@@ -268,15 +266,65 @@ function addCartCars3(){
             </div>
             `
         
-            document.getElementById("probo").innerHTML = prub;
-            document.getElementById("costUnit").innerHTML = ("UYU" + mix);
+            if( prub2 == "")
+            {
+                prub2 += prub;
+                document.getElementById("probo").innerHTML = prub2;
+                document.getElementById("costUnit").innerHTML = ("UYU" + mix);
+                arrePrice[0] = mix;
+            }else{
+                prub2 += prub;
+                document.getElementById("probo").innerHTML = prub2;
+                arrePrice[arrePrice.length] = mix;
+                showTotalPrice(arrePrice);
+            }
 
             
 }
 
+function showTotalPrice(arre){
+    let totalCost = 0;
+    for(let i = 0; i < arrePrice.length; i++)
+    {
+        totalCost += arre[i]; 
+    }
+    document.getElementById("costUnit").innerHTML = "UYU" + totalCost;
+    console.log(totalCost);
+}
 
+console.log(arrePrice)
+/* console.log($('probo').is(':empty') ); */
 
-
+/* function showRelationedProducts(pine)
+{
+    console.log(pine);
+    let su_itchi = "";
+    let m = 0;
+    
+    for(let i = 0; i < pine.length; i++){
+        let imageSrc = pine[i];
+        console.log(i);
+        if(m == 0)
+        {
+            su_itchi += `
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="`+ imageSrc.imgSrc +`">
+            </div>
+            `
+            m = 1;
+        }else if(m == 1){
+            su_itchi += `
+            <div class="carousel-item">
+                <img class="d-block w-100" src="`+ imageSrc.imgSrc +`">
+            </div>
+            `
+        }
+            
+        
+        document.getElementById("cartProductRelationed").innerHTML = su_itchi;
+    }
+ 
+} */
    
     
     
