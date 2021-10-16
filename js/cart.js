@@ -4,7 +4,9 @@ let arrePrice = [];
 let g = -1;
 let value;
 let pineCount;
-let prub2 = "";
+let addAnotherCars = "";
+let theInd;
+let pineAndcarCost = 0;
 
 document.addEventListener("DOMContentLoaded", async function(e)
 {
@@ -35,10 +37,22 @@ document.addEventListener("DOMContentLoaded", async function(e)
 
     document.getElementById("changeCant").addEventListener("click", changeCartCant);
 
-    document.getElementById("-11").addEventListener("click", addCartCars);
-    document.getElementById("01").addEventListener("click", addCartCars1);
-    document.getElementById("11").addEventListener("click", addCartCars2);
-    document.getElementById("21").addEventListener("click", addCartCars3);
+    document.getElementById("-11").addEventListener("click", function(){
+        theInd = 0;
+        addCartCars(theInd);
+    });
+    document.getElementById("01").addEventListener("click", function(){
+        theInd = 1;
+        addCartCars(theInd);
+    });
+    document.getElementById("11").addEventListener("click", function(){
+        theInd = 2;
+        addCartCars(theInd);
+    });
+    document.getElementById("21").addEventListener("click", function(){
+        theInd = 3;
+        addCartCars(theInd);
+    });
 
 
     const cartButtons = document.querySelectorAll('.cart-button');
@@ -80,7 +94,6 @@ function showRelationedProducts(pine)
             `
             
          arre.push({
-               "ind": g + 1,
                "img": imageSrc.imgSrc,
                "nam": imageSrc.name,
                "curr": imageSrc.currency,
@@ -91,240 +104,89 @@ function showRelationedProducts(pine)
          
         document.getElementById("cartProductRelationed").innerHTML = su_itchi;
     }
-    
+
 }
 
 
 function changeCartCant(){
     value = document.getElementById("addCant").value;
+    let pineAndcarCostTotal;
+    console.log(pineAndcarCost);
 
-    document.getElementById("totalProducts").innerHTML = "Cantidad:" + value;
-    document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][0].currency + (value)*(cartProduct[`articles`][0].unitCost));
-    document.getElementById("costUnit").innerHTML = (cartProduct[`articles`][0].currency + (value)*(cartProduct[`articles`][0].unitCost));
+    if(pineAndcarCost == 0){
+        document.getElementById("totalProducts").innerHTML = "Cantidad:" + value;
+        document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][0].currency + (value)*(cartProduct[`articles`][0].unitCost));
+        document.getElementById("costUnit").innerHTML = (cartProduct[`articles`][0].currency + (value)*(cartProduct[`articles`][0].unitCost));
+    }else{
+        pineAndcarCostTotal = pineAndcarCost + ((value)*(cartProduct[`articles`][0].unitCost));
+        document.getElementById("totalProducts").innerHTML = "Cantidad:" + value;
+        document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][0].currency + (value)*(cartProduct[`articles`][0].unitCost));
+        document.getElementById("costUnit").innerHTML = (cartProduct[`articles`][0].currency + pineAndcarCostTotal);
+    }
 }
 
 
-function addCartCars(){
-    let prub = "";
-    let cont = (arre[0].cosT)*43;
-    let mix = pineCount + cont;
-  
-                prub += `
-                    <div class="row text-muted"> `+ arre[0].nam +`</div>
-                    <div class="row border-top border-bottom">
-                        <div class="row main align-items-center">
-                            <div class="col-2"> <img src="`+ arre[0].img+`"></div>
-                                <div class="col">
-                                    <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[0].curr +` `+ arre[0].cosT +`</div>
-                                    <div class="row"> Cantidad: </div>
-                                    <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[0].curr +` `+ arre[0].cosT +`</div>
-                                </div>
-                                    <div class="col"> 
-                                        <div class="col" id="gg2" data-toggle="button" role="group">
-                                        <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
-                                    </div>
-                                    <br>
-                                    <div class="col" id="checkOut2">
-                                        <input type="text" id="addCantCars2" placeholder="Cantidad">
-                                        <button type="button" class="btn btn-outline-primary" id="changeCant2">Añadir</button>
-                                        <br><br>
-                                    </div> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `
-        
-                if( prub2 == ""){
-                    prub2  += prub;
-                    document.getElementById("probo").innerHTML = prub2;
-                    document.getElementById("costUnit").innerHTML = ("UYU" + mix);
-                    arrePrice[0]= mix;
-                }else{
-                    prub2  += prub;
-                    document.getElementById("probo").innerHTML = prub2;
-                    arrePrice[arrePrice.length] = mix;
-                    showTotalPrice(arrePrice);
-                }        
-}
+function addCartCars(ind){
+    let i = 0;
+    console.log(arre);
 
-function addCartCars1(){
-    let prub = "";
-    let cont = (arre[1].cosT)*43;
-    let mix = pineCount + cont;
+    while(i != ind)
+    {
+        i++
+    }
 
-            prub += `
-            <div class="row text-muted"> `+ arre[1].nam +`</div>
-            <div class="row border-top border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-2"> <img src="`+ arre[1].img+`"></div>
-                        <div class="col">
-                             <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[1].curr +` `+ arre[1].cosT +`</div>
-                             <div class="row"> Cantidad: </div>
-                             <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[1].curr +` `+ arre[1].cosT +`</div>
-                        </div>
-                            <div class="col"> 
-                                <div class="col" id="gg2" data-toggle="button" role="group">
-                                <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
-                            </div>
-                            <br>
-                            <div class="col" id="checkOut2">
-                                <input type="text" id="addCantCars2" placeholder="Cantidad">
-                                <button type="button" class="btn btn-outline-primary" id="changeCant2">Añadir</button>
-                                <br><br>
-                            </div> 
-                        </div>
+    addAnotherCars += `
+    <div class="row text-muted"> `+ arre[i].nam +`</div>
+    <div class="row border-top border-bottom">
+        <div class="row main align-items-center">
+            <div class="col-2"> <img src="`+ arre[i].img+`"></div>
+                <div class="col">
+                    <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[i].curr +` `+ arre[i].cosT +`</div>
+                    <div class="row"> Cantidad: </div>
+                    <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[i].curr +` `+ arre[i].cosT +`</div>
+                </div>
+                    <div class="col"> 
+                        <div class="col" id="gg2" data-toggle="button" role="group">
+                        <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
                     </div>
+                    <br>
+                    <div class="col" id="checkOut2">
+                        <input type="text" id="addCantCars2" placeholder="Cantidad">
+                        <button type="button" class="btn btn-outline-primary" id="changeCant2">Añadir</button>
+                        <br><br>
+                    </div> 
                 </div>
             </div>
-            `
-        
-            if( prub2 == ""){
-                prub2 += prub;
-                document.getElementById("probo").innerHTML = prub2;
-                document.getElementById("costUnit").innerHTML = ("UYU" + mix);
-                arrePrice[0] = mix;
-            }else{
-                prub2 += prub;
-                document.getElementById("probo").innerHTML = prub2;
-                arrePrice[arrePrice.length] = mix;
-                showTotalPrice(arrePrice);
-            }
+        </div>
+    </div>
+    `
+    arrePrice.push({
+        "cost": arre[i].cosT,
+        "coin": arre[i].curr,
+    });
+
+    document.getElementById("probo").innerHTML = addAnotherCars;
+
+    showTotalPrice(arrePrice);
+
 }
 
-function addCartCars2(){
-    let prub = "";
-    let cont = (arre[2].cosT)*43;
-    let mix = pineCount + cont;
-
-            prub += `
-            <div class="row text-muted"> `+ arre[2].nam +`</div>
-            <div class="row border-top border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-2"> <img src="`+ arre[2].img+`"></div>
-                        <div class="col">
-                             <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[2].curr +` `+ arre[2].cosT +`</div>
-                             <div class="row"> Cantidad: </div>
-                             <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[2].curr +` `+ arre[2].cosT +`</div>
-                        </div>
-                            <div class="col"> 
-                                <div class="col" id="gg2" data-toggle="button" role="group">
-                                <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
-                            </div>
-                            <br>
-                            <div class="col" id="checkOut2">
-                                <input type="text" id="addCantCars2" placeholder="Cantidad">
-                                <button type="button" class="btn btn-outline-primary" id="changeCant2">Añadir</button>
-                                <br><br>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `
-            if( prub2 == ""){
-                prub2 += prub;
-                document.getElementById("probo").innerHTML = prub2;
-                document.getElementById("costUnit").innerHTML = ("UYU" + mix);
-                arrePrice[0] = mix;
-            }else{
-                prub2 += prub;
-                document.getElementById("probo").innerHTML = prub2;
-                arrePrice[arrePrice.length] = mix;
-                showTotalPrice(arrePrice);
-            }
-}
-
-function addCartCars3(){
-    let prub = "";
-    let cont = (arre[3].cosT)*43;
-    let mix = pineCount + cont;
-
-            prub += `
-            <div class="row text-muted"> `+ arre[3].nam +`</div>
-            <div class="row border-top border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-2"> <img src="`+ arre[3].img+`"></div>
-                        <div class="col">
-                             <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[3].curr +` `+ arre[3].cosT +`</div>
-                             <div class="row"> Cantidad: </div>
-                             <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[3].curr +` `+ arre[3].cosT +`</div>
-                        </div>
-                            <div class="col"> 
-                                <div class="col" id="gg2" data-toggle="button" role="group">
-                                <button type="button" class="btn btn-outline-danger" >❤️</button> <button type="button" class="btn btn-outline-danger" >Remover</button>
-                            </div>
-                            <br>
-                            <div class="col" id="checkOut2">
-                                <input type="text" id="addCantCars2" placeholder="Cantidad">
-                                <button type="button" class="btn btn-outline-primary" id="changeCant2">Añadir</button>
-                                <br><br>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `
-        
-            if( prub2 == "")
-            {
-                prub2 += prub;
-                document.getElementById("probo").innerHTML = prub2;
-                document.getElementById("costUnit").innerHTML = ("UYU" + mix);
-                arrePrice[0] = mix;
-            }else{
-                prub2 += prub;
-                document.getElementById("probo").innerHTML = prub2;
-                arrePrice[arrePrice.length] = mix;
-                showTotalPrice(arrePrice);
-            }
-
-            
-}
 
 function showTotalPrice(arre){
     let totalCost = 0;
+
     for(let i = 0; i < arrePrice.length; i++)
     {
-        totalCost += arre[i]; 
+        totalCost += arre[i].cost; 
     }
-    document.getElementById("costUnit").innerHTML = "UYU" + totalCost;
-    console.log(totalCost);
+        totalCost *= 43;
+        totalCost += pineCount;
+        document.getElementById("costUnit").innerHTML = "UYU" + totalCost;
+        pineAndcarCost = totalCost - 200;
 }
 
-console.log(arrePrice)
-/* console.log($('probo').is(':empty') ); */
 
-/* function showRelationedProducts(pine)
-{
-    console.log(pine);
-    let su_itchi = "";
-    let m = 0;
-    
-    for(let i = 0; i < pine.length; i++){
-        let imageSrc = pine[i];
-        console.log(i);
-        if(m == 0)
-        {
-            su_itchi += `
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="`+ imageSrc.imgSrc +`">
-            </div>
-            `
-            m = 1;
-        }else if(m == 1){
-            su_itchi += `
-            <div class="carousel-item">
-                <img class="d-block w-100" src="`+ imageSrc.imgSrc +`">
-            </div>
-            `
-        }
-            
-        
-        document.getElementById("cartProductRelationed").innerHTML = su_itchi;
-    }
- 
-} */
-   
+
+
     
     
