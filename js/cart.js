@@ -7,6 +7,7 @@ let pineCount;
 let addAnotherCars = "";
 let theInd;
 let pineAndcarCost = 0;
+let cartPine;
 
 document.addEventListener("DOMContentLoaded", async function(e)
 {
@@ -19,16 +20,21 @@ document.addEventListener("DOMContentLoaded", async function(e)
             let cartProduct_img = document.getElementById("cartProductIMG");
             let cartProduct_total = document.getElementById("totalProducts");
             let cartProduct_cost = document.getElementById("coin");
+            console.log(cartProduct);
+            
+            for(let j = 0; j < cartProduct[`articles`].length; j++)
+            {
+                cartPine =  cartProduct[`articles`][j];
+                console.log(cartPine);
+                cartProduct_cost.innerHTML = "Costo por unidad:" + " " + cartPine.currency + cartPine.unitCost;
+                cartProduct_name.innerHTML = cartPine.name;
+                cartProduct_img.innerHTML = `<p><img  src="` + cartPine.src + `"></img> </p>`
+                cartProduct_total.innerHTML = "Cantidad:" + " " + cartPine.count;
+                pineCount = (cartPine.count)*(cartPine.unitCost);
 
-            cartProduct_cost.innerHTML = "Costo por unidad:" + " " + cartProduct[`articles`][0].currency + cartProduct[`articles`][0].unitCost;
-            cartProduct_name.innerHTML = cartProduct[`articles`][0].name;
-            cartProduct_img.innerHTML = `<p><img  src="` + cartProduct[`articles`][0].src + `"></img> </p>`
-            cartProduct_total.innerHTML = "Cantidad:" + " " + cartProduct[`articles`][0].count;
-            pineCount = (cartProduct[`articles`][0].count)*(cartProduct[`articles`][0].unitCost);
-
-            document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][0].currency + (cartProduct[`articles`][0].count)*(cartProduct[`articles`][0].unitCost));
-            document.getElementById("costUnit").innerHTML = (cartProduct[`articles`][0].currency + (cartProduct[`articles`][0].count)*(cartProduct[`articles`][0].unitCost));
-
+                document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartPine.currency + (cartPine.count)*(cartPine.unitCost));
+                document.getElementById("costTotal").innerHTML = (cartPine.currency + (cartPine.count)*(cartPine.unitCost));
+            }
         }
     })
 
@@ -72,13 +78,13 @@ function cartClick(){
     }
 
 
-function showRelationedProducts(pine)
+function showRelationedProducts(car)
 {
     let su_itchi = "";
     
-    for(let i = 0; i < pine.length; i++)
+    for(let i = 0; i < car.length; i++)
     {
-        let imageSrc = pine[i];
+        let imageSrc = car[i];
 
             su_itchi += `
             <div class="card" style="--delay:`+ g +`;">
@@ -114,36 +120,42 @@ function changeCartCant(){
     console.log(pineAndcarCost);
 
     if(pineAndcarCost == 0){
-        document.getElementById("totalProducts").innerHTML = "Cantidad:" + value;
-        document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][0].currency + (value)*(cartProduct[`articles`][0].unitCost));
-        document.getElementById("costUnit").innerHTML = (cartProduct[`articles`][0].currency + (value)*(cartProduct[`articles`][0].unitCost));
+        for(let j = 0; j < cartProduct[`articles`].length; j++)
+        {   
+            document.getElementById("totalProducts").innerHTML = "Cantidad:" + value;
+            document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][j].currency + (value)*(cartProduct[`articles`][j].unitCost));
+            document.getElementById("costTotal").innerHTML = (cartProduct[`articles`][j].currency + (value)*(cartProduct[`articles`][j].unitCost));
+        }
     }else{
-        pineAndcarCostTotal = pineAndcarCost + ((value)*(cartProduct[`articles`][0].unitCost));
-        document.getElementById("totalProducts").innerHTML = "Cantidad:" + value;
-        document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][0].currency + (value)*(cartProduct[`articles`][0].unitCost));
-        document.getElementById("costUnit").innerHTML = (cartProduct[`articles`][0].currency + pineAndcarCostTotal);
+        for(let j = 0; j < cartProduct[`articles`].length; j++)
+        { 
+            pineAndcarCostTotal = pineAndcarCost + ((value)*(cartProduct[`articles`][j].unitCost));
+            document.getElementById("totalProducts").innerHTML = "Cantidad:" + value;
+            document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][j].currency + (value)*(cartProduct[`articles`][j].unitCost));
+            document.getElementById("costTotal").innerHTML = (cartProduct[`articles`][j].currency + pineAndcarCostTotal);
+        }
     }
 }
 
 
 function addCartCars(ind){
-    let i = 0;
-    console.log(arre);
+   /*  let i = 0;
+    console.log(arre); */
 
-    while(i != ind)
+    /* while(i != ind)
     {
         i++
-    }
+    } */
 
     addAnotherCars += `
-    <div class="row text-muted"> `+ arre[i].nam +`</div>
+    <div class="row text-muted"> `+ arre[ind].nam +`</div>
     <div class="row border-top border-bottom">
         <div class="row main align-items-center">
-            <div class="col-2"> <img src="`+ arre[i].img+`"></div>
+            <div class="col-2"> <img src="`+ arre[ind].img+`"></div>
                 <div class="col">
-                    <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[i].curr +` `+ arre[i].cosT +`</div>
+                    <div class="row">`+ "Costo por unidad:" +` `+ " " +` `  + arre[ind].curr +` `+ arre[ind].cosT +`</div>
                     <div class="row"> Cantidad: </div>
-                    <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[i].curr +` `+ arre[i].cosT +`</div>
+                    <div class="row">`+ "Subtotal:" +` `+ " " +` `  + arre[ind].curr +` `+ arre[ind].cosT +`</div>
                 </div>
                     <div class="col"> 
                         <div class="col" id="gg2" data-toggle="button" role="group">
@@ -161,11 +173,11 @@ function addCartCars(ind){
     </div>
     `
     arrePrice.push({
-        "cost": arre[i].cosT,
-        "coin": arre[i].curr,
+        "cost": arre[ind].cosT,
+        "coin": arre[ind].curr,
     });
 
-    document.getElementById("probo").innerHTML = addAnotherCars;
+    document.getElementById("restOfproducts").innerHTML = addAnotherCars;
 
     showTotalPrice(arrePrice);
 
@@ -181,7 +193,7 @@ function showTotalPrice(arre){
     }
         totalCost *= 43;
         totalCost += pineCount;
-        document.getElementById("costUnit").innerHTML = "UYU" + totalCost;
+        document.getElementById("costTotal").innerHTML = "UYU" + totalCost;
         pineAndcarCost = totalCost - 200;
 }
 
