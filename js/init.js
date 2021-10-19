@@ -50,12 +50,12 @@ function ShowPag(data){//Funcion que me redirige al login
 
 function mostrarUser(){
   const user_s = document.getElementById("Usuario");
-  const u_ser = sessionStorage.getItem("Base_DATOS");
-  user_s.innerHTML = JSON.parse(u_ser)[0].user;
+  const u_ser = localStorage.getItem("Base_DATOS");
+  user_s.innerHTML = JSON.parse(u_ser)[0].name;
 }
 
 function closeSesion(){
-  sessionStorage.removeItem("Base_DATOS");
+  localStorage.removeItem("Base_DATOS");
 }
 
 
@@ -64,7 +64,7 @@ function closeSesion(){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-  ShowPag(JSON.parse(sessionStorage.getItem("Base_DATOS")));
+  ShowPag(JSON.parse(localStorage.getItem("Base_DATOS")));
 
   mostrarUser();
 
