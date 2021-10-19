@@ -42,3 +42,20 @@ function changeInfo()
 
 
 }
+
+/* para después */
+/* function mostrar(){
+    var archivo = document.getElementById("file").files[0];
+    var reader = new FileReader();
+    if (file) {
+      reader.readAsDataURL(archivo );
+      reader.onloadend = function () {
+        document.getElementById("img").src = reader.result;
+      }
+    }
+  }
+
+  <input type="file" id="file" accept="image/*" onchange="mostrar()"/>
+  <br>
+  <img class="rounded-circle mt-5" width="200px" id="img"/> */
+/* fin para después */
