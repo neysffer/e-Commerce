@@ -31,7 +31,8 @@ function registerClient(){
     const regEmail = document.getElementById("registerEmail").value;
     const regPhone = document.getElementById("registerPhone").value;
     const regPassword = document.getElementById("registerPass").value;
-    const userRandom = "User_0199"
+    const userRandom = "User_";
+    const userRandomLastNam = "199";
 
    if(regUser && regPassword)
    {
@@ -41,6 +42,8 @@ function registerClient(){
         "phone" : regPhone,
         "pass" :  regPassword,
         "user" : userRandom,
+        "lastNam" : userRandomLastNam,
+        "img" : "/img/camera.png",
        });
 
        window.location = "index.html";
