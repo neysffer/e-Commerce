@@ -58,16 +58,21 @@
   <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><button class="btn btn-primary">Cambiar imagen </button>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+              <div id="changeIMG">
+               
+              </div>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#changeImgModal">Cambiar imagen </button>
               <br>
             <span class="font-weight-bold" id="changeName"></span>
             <span class="text-black-50" id="changeUserName"></span>
-            <span class="text-black-50" id="changeEmail"></span></div>
+            <!-- <span class="text-black-50" id="changeEmail"></span> -->
+          </div>
         </div>
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
+                    <h4 class="text-right">Configuración del Perfil</h4>
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6"><label class="labels">Nombre</label><input id="nameUser" type="text" class="form-control" placeholder="Nombre" value=""></div>
@@ -82,20 +87,20 @@
                     <option value="3">Otro</option>
                 </select>
               </div>
-                    <div class="col-md-12"><label class="labels">Numero de telefono</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                    <div class="col-md-12"><label class="labels">Numero de telefono</label><input id="changePhone" type="text" class="form-control" placeholder="Cambiar telefono" value=""></div>
                     <!-- <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div> -->
                     <!-- <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div> -->
                    <!--  <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div> -->
                     <!-- <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
                     <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div> -->
-                    <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="cambiar email" value=""></div>
-                    <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input id="changePlaceHolderEmail" type="text" class="form-control" placeholder="Cambiar email" value=""></div>
+                    <div class="col-md-12"><label class="labels">Profesión</label><input type="text" class="form-control" placeholder="Profesión" value=""></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
+                    <div class="col-md-6"><label class="labels">País</label><input type="text" class="form-control" placeholder="País" value=""></div>
+                    <div class="col-md-6"><label class="labels">Estado/Región</label><input type="text" class="form-control" value="" placeholder="Estado/Región"></div>
                 </div>
-                <div class="mt-5 text-center"><button id="btnSaveChange" class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                <div class="mt-5 text-center"><button id="btnSaveChange" class="btn btn-primary profile-button" type="button">Guardar cambios</button></div>
             </div>
         </div>
         <div class="col-md-4">
@@ -129,6 +134,30 @@
     </div>
 </div>
 </div>
+</div>
+
+<div class="modal fade" id="changeImgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img id="imgModal" class="rounded-circle mt-5" width="150px" src="/img/woman.png" >
+        <!-- <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"> -->
+        <img id="imgModal" class="rounded-circle mt-5" width="130px" src="/img/man.png">
+        <img id="imgModal" class="rounded-circle mt-5" width="150px" src="/img/siluette_1.png">
+        <img id="imgModal" class="rounded-circle mt-5" width="150px" src="/img/siluette_2.png" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
   <div id="spinner-wrapper">

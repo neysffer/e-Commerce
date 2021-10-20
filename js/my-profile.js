@@ -1,46 +1,74 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-const name_user = JSON.parse(localStorage.getItem("Base_DATOS"));
+const myDataBase = JSON.parse(localStorage.getItem("Base_DATOS"));
+
+/* let imgConst = myDataBase[0].img; */
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    showUserandEmail();
+  
+    document.getElementById("changeUserName").innerHTML = (myDataBase)[0].name;
+    /* document.getElementById("changeEmail").innerHTML = (myDataBase)[0].email; */
+    document.getElementById("changePlaceHolderEmail").placeholder = (myDataBase)[0].email;
 
-    document.getElementById("btnSaveChange").addEventListener("click", changeInfo)
+    document.getElementById("changePhone").placeholder = (myDataBase)[0].phone;
+
+    document.getElementById("changeName").innerHTML = (myDataBase)[0].user + " " + (myDataBase)[0].lastNam;
+
+    document.getElementById("changeIMG").innerHTML = ` <img class="rounded-circle mt-5" width="150px" src="` + myDataBase[0].img +`">`
+
+    document.getElementById("btnSaveChange").addEventListener("click", changeInfo);
+
+    document.getElementById("imgModal").addEventListener("click", changeImage);
 });
 
-function showUserandEmail()
-{
- document.getElementById("changeUserName").innerHTML = (name_user)[0].name;
- document.getElementById("changeEmail").innerHTML = (name_user)[0].email;
- document.getElementById("changeName").innerHTML = (name_user)[0].user;
-  
- console.log(name_user);
-}
 
 function changeInfo()
 {
-    let changeName = document.getElementById("changeName");
-    let newName = document.getElementById("nameUser").value;
     const arr = [];
+    let newName = document.getElementById("nameUser").value;
+    let newLastname = document.getElementById("lastName").value;
     
-    changeName.innerHTML = newName;
+
+    document.getElementById("changeName").innerHTML = newName + " " + newLastname;
 
     arr.push({
-        "name" : name_user[0].name,
-        "email" : name_user[0].email,
-        "phone" : name_user[0].phone,
-        "pass" :  name_user[0].pass,
+        "name" : myDataBase[0].name,
+        "email" : myDataBase[0].email,
+        "phone" : myDataBase[0].phone,
+        "pass" :  myDataBase[0].pass,
         "user" : newName,
+        "lastNam": newLastname,
+        "img" : myDataBase[0].img,
     });
 
+  /* console.log(arr); */
    localStorage.setItem("Base_DATOS", JSON.stringify(arr));
 
-   
-    console.log(arr);
-    
+}
 
 
+function changeImage(){
+  let arre = [];
+myDataBase[0].img = "/img/woman.png";
+
+  document.getElementById("changeIMG").innerHTML = ` <img class="rounded-circle mt-5" width="150px" src="` + myDataBase[0].img +`">`
+
+  arre.push({
+    "name" : myDataBase[0].name,
+    "email" : myDataBase[0].email,
+    "phone" : myDataBase[0].phone,
+    "pass" :  myDataBase[0].pass,
+    "user" : myDataBase[0].user,
+    "lastNam": myDataBase[0].lastNam,
+    "img" : myDataBase[0].img,
+});
+  localStorage.setItem("Base_DATOS", JSON.stringify(arre));
+
+  
+
+  
 }
 
 /* para después */
