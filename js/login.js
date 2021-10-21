@@ -30,6 +30,10 @@ function registerClient(){
     const regUser = document.getElementById("registerName").value;
     const regEmail = document.getElementById("registerEmail").value;
     const regPhone = document.getElementById("registerPhone").value;
+    /* const selectedNumberPhone = document.getElementById("selectNumber");
+    const text = selectedNumberPhone.options[selectedNumberPhone.selectedIndex].text; */
+    let selected = document.getElementById("selectNumber");
+    let selectedNumberPhone = selected.options[selected.selectedIndex].text;
     const regPassword = document.getElementById("registerPass").value;
     const userRandom = "User_";
     const userRandomLastNam = "199";
@@ -40,6 +44,7 @@ function registerClient(){
         "name" : regUser,
         "email" : regEmail,
         "phone" : regPhone,
+        "numbSelect" : selectedNumberPhone,
         "pass" :  regPassword,
         "user" : userRandom,
         "lastNam" : userRandomLastNam,
@@ -51,7 +56,7 @@ function registerClient(){
    }else{
     alert("Usuario y contraseña no deben ser vacíos");
    }
-
+console.log(arreRegister);
 }
 
 console.log(localStorage.getItem("Base_DATOS"));
