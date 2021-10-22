@@ -113,23 +113,19 @@ var maxi_mo = undefined;
               if (((mini_mon == undefined) || (mini_mon != undefined && parseInt(productos.cost) >= mini_mon)) &&
                 ((maxi_mo == undefined) || (maxi_mo != undefined && parseInt(productos.cost) <= maxi_mo))){   
     
-                htmlContentToAppend += `
-                <a href="product-info.html" class="list-group-item list-group-item-action" id="cambio">
-                    <div class="row">
-                        <div class="col-3">
-                            <img src="` + productos.imgSrc + `" alt="` + productos.description + `" class="img-thumbnail">
-                        </div>
-                        <div class="col">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h4 id="titulos_cars" class="mb-1">`+ productos.name +`</h4>
-                                <small id="cant_cars">` + productos.soldCount + ` artículos</small>
-                            </div>
-                            <p id="desc_cars" class="mb-1">` + productos.description + ` </p>
-                            <p id="cost_cars" class="mb-1"> `+ productos.currency+ ` `+ productos.cost +`</p>
-                        </div>
-                    </div>
-                </a>
-                `
+                htmlContentToAppend += ` 
+                                <div class="col-md-4">
+                                    <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+                                        <img class="bd-placeholder-img card-img-top"  src="` + productos.imgSrc + `">
+                                        <h3 class="m-3">`+ productos.name +` &nbsp; (`+ productos.soldCount  +`)</h3>
+                                        <div class="card-body">
+                                            <p class="card-text">` + productos.description + `</p>
+                                            <p class="card-text">`+ productos.currency+ ` `+ productos.cost +`</p>
+                                        </div>
+                                    </a>
+                                </div>
+
+                    `
            }
     
             document.getElementById("imagen_es").innerHTML = htmlContentToAppend;
@@ -198,6 +194,34 @@ var maxi_mo = undefined;
         ShowProductsList();
     });
     
+    document.getElementById("clearRangeFilter").addEventListener("click", function(){
+        document.getElementById("min").value = "";
+        document.getElementById("max").value = "";
+
+        mini_mon = undefined;
+        maxi_mo = undefined;
+
+        ShowProductsList();
+    });
     
 });   
 
+
+
+/* `
+                <a href="product-info.html" class="list-group-item list-group-item-action" id="cambio">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="` + productos.imgSrc + `" alt="` + productos.description + `" class="img-thumbnail">
+                        </div>
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 id="titulos_cars" class="mb-1">`+ productos.name +`</h4>
+                                <small id="cant_cars">` + productos.soldCount + ` artículos</small>
+                            </div>
+                            <p id="desc_cars" class="mb-1">` + productos.description + ` </p>
+                            <p id="cost_cars" class="mb-1"> `+ productos.currency+ ` `+ productos.cost +`</p>
+                        </div>
+                    </div>
+                </a>
+                ` */

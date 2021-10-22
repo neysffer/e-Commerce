@@ -140,11 +140,11 @@ a.custom-card:hover {
   color: orange;
 }
 
-#imagen_es{
+/* #imagen_es{
   margin-left: 600px;
   position: fixed;
   color: rgb(255, 255, 255);
-}
+} */
 
 #colortxt{
   color: #fff;
@@ -161,18 +161,18 @@ a.custom-card:hover {
   height: 20px;
 }
 
-.Rango_precio{
+/* .Rango_precio{
   position: fixed;
-}
+} */
 
 .produ_ctos{
   background-image: url("../img/algo3.gif");
 }
 
-.Rango_ascendente{
+/* .Rango_ascendente{
   position: fixed;
   margin-top: 100px;
-}
+} */
 
 #cambio{
   background-color: transparent;
