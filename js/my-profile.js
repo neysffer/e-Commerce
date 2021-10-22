@@ -93,7 +93,7 @@ function changeImage(directionImg){
 }
 
 /* para después */
-/* function mostrar(){
+ /*  function mostrar(){
     var archivo = document.getElementById("file").files[0];
     var reader = new FileReader();
     if (file) {
@@ -102,9 +102,7 @@ function changeImage(directionImg){
         document.getElementById("img").src = reader.result;
       }
     }
-  }
+  }  */
 
-  <input type="file" id="file" accept="image/*" onchange="mostrar()"/>
-  <br>
-  <img class="rounded-circle mt-5" width="200px" id="img"/> */
+
 /* fin para después */
