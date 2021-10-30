@@ -3,6 +3,8 @@
 //elementos HTML presentes.
 const arre_clientes = [];
 const arreRegister = [];
+const userRandom = "User_";
+const userRandomLastNam = "199";
 
 function buttonSignIn(){
     const txtUser = document.getElementById("user");
@@ -15,6 +17,9 @@ function buttonSignIn(){
         arre_clientes.push({
         "name" :  user,
         "pass" : contraseña,
+        "user" : userRandom,
+        "lastNam" : userRandomLastNam,
+        "img" : "/img/camera.png",
         }); 
     localStorage.setItem("Base_DATOS", JSON.stringify(arre_clientes));
     //console.log(sessionStorage.getItem("DATA"));
@@ -30,13 +35,9 @@ function registerClient(){
     const regUser = document.getElementById("registerName").value;
     const regEmail = document.getElementById("registerEmail").value;
     const regPhone = document.getElementById("registerPhone").value;
-    /* const selectedNumberPhone = document.getElementById("selectNumber");
-    const text = selectedNumberPhone.options[selectedNumberPhone.selectedIndex].text; */
-    let selected = document.getElementById("selectNumber");
-    let selectedNumberPhone = selected.options[selected.selectedIndex].text;
     const regPassword = document.getElementById("registerPass").value;
-    const userRandom = "User_";
-    const userRandomLastNam = "199";
+    let selected = document.getElementById("selectNumber");
+    /* let selectedNumberPhone = selected.options[selected.selectedIndex].text; */
 
    if(regUser && regPassword)
    {
@@ -44,11 +45,12 @@ function registerClient(){
         "name" : regUser,
         "email" : regEmail,
         "phone" : regPhone,
-        "numbSelect" : selectedNumberPhone,
+        "numbSelect" : selected.selectedIndex,
         "pass" :  regPassword,
         "user" : userRandom,
         "lastNam" : userRandomLastNam,
         "img" : "/img/camera.png",
+        "age" : "Edad"
        });
 
        window.location = "index.html";
