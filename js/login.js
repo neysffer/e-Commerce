@@ -5,6 +5,7 @@ const arre_clientes = [];
 const arreRegister = [];
 const userRandom = "User_";
 const userRandomLastNam = "199";
+let valeSex = 0;
 
 function buttonSignIn(){
     const txtUser = document.getElementById("user");
@@ -20,6 +21,10 @@ function buttonSignIn(){
         "user" : userRandom,
         "lastNam" : userRandomLastNam,
         "img" : "/img/camera.png",
+        "age" : "Edad",
+        "sex" : valeSex,
+        "pais" : "País",
+        "ER" : "Estado/Región"
         }); 
     localStorage.setItem("Base_DATOS", JSON.stringify(arre_clientes));
     //console.log(sessionStorage.getItem("DATA"));
@@ -37,6 +42,7 @@ function registerClient(){
     const regPhone = document.getElementById("registerPhone").value;
     const regPassword = document.getElementById("registerPass").value;
     let selected = document.getElementById("selectNumber");
+   
     /* let selectedNumberPhone = selected.options[selected.selectedIndex].text; */
 
    if(regUser && regPassword)
@@ -50,7 +56,10 @@ function registerClient(){
         "user" : userRandom,
         "lastNam" : userRandomLastNam,
         "img" : "/img/camera.png",
-        "age" : "Edad"
+        "age" : "Edad",
+        "sex" : valeSex,
+        "pais" : "País",
+        "ER" : "Estado/Región"
        });
 
        window.location = "index.html";
