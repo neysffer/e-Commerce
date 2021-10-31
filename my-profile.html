@@ -66,36 +66,22 @@
                     <h4 class="text-right">Configuración del Perfil</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Nombre</label><input id="nameUser" type="text" class="form-control" placeholder="Nombre" value=""></div>
-                    <div class="col-md-6"><label class="labels">Apellido</label><input id="lastName" type="text" class="form-control" value="" placeholder="Apellido"></div>
+                    <div class="col-md-6"><label class="labels">Nombre *</label><input id="nameUser" type="text" class="form-control" placeholder="Nombre" value=""></div>
+                    <div class="col-md-6"><label class="labels">Apellido *</label><input id="lastName" type="text" class="form-control" value="" placeholder="Apellido"></div>
                 </div>
                 <div class="row mt-3">
                   <div class="col-md-12"> 
-                    <select class="custom-select" style="max-width: 120px;">
-                      <option value="0" selected="">Sexo</option>
+                    <select id="selectSex" class="custom-select" style="max-width: 120px;">
+                      <option value="0">Sexo</option>
                       <option value="1">Mujer</option>
                       <option value="2">Hombre</option>
                       <option value="3">Otro</option>
                     </select>
                  </div>
-              
-            <!--   <div class="row mt-3">
-                  <div class="col-md-12"><label class="labels">Numero de telefono</label><br>
-                  <select id="selectNumber" class="custom-select" style="max-width: 120px;">
-                      <option value="0">+598</option>
-                      <option value="1">+972</option>
-                      <option value="2">+198</option>
-                      <option value="3">+701</option>
-                  </select>
-                </div>
-                  <div class="col-md-12">
-                    <input id="changePhone" type="text" class="form-control" placeholder="Cambiar telefono" value=""></div>
-                  </div>  -->
-
                   <br><br>
                     <div class="col-md-6"> 
                         <select id="selectNumber" class="custom-select" style="max-width: 120px;">
-                          <option value="0">(+)</option>
+                          <option value="0">(+)*</option>
                           <option value="1">+598</option>
                           <option value="2">+198</option>
                           <option value="3">+701</option>
@@ -103,26 +89,20 @@
                     </div>
                     <div class="col-md-6"><input id="changePhone" type="text" class="form-control" value="" placeholder="Cambiar telefono" ></div>
                 
-
-                    <!-- <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div> -->
-                    <!-- <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div> -->
-                   <!--  <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div> -->
-                    <!-- <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div> -->
-                    <div class="col-md-12"><label class="labels">Email</label><input id="changePlaceHolderEmail" type="text" class="form-control" placeholder="Cambiar email" value=""></div>
+                    <div class="col-md-12"><label class="labels">Email *</label><input id="changePlaceHolderEmail" type="text" class="form-control" placeholder="Cambiar email" value=""></div>
                     <br><br><br><br>
 
                         <div class="col-md-6" id="myDatePicker">
                           <form autocomplete="off">
-                            <input type="text" id="dp1" class="datepicker" placeholder="Select Date" name="date"><br> 
+                            <input type="text" id="dp1" class="datepicker" placeholder="Fecha de nacimiento*" name="date"><br> 
                           </form></div>
                         <div class="col-md-6">
                          <input id="age"  type="text" class="form-control" placeholder="Edad" value="">
                         </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">País</label><input type="text" class="form-control" placeholder="País" value=""></div>
-                    <div class="col-md-6"><label class="labels">Estado/Región</label><input type="text" class="form-control" value="" placeholder="Estado/Región"></div>
+                    <div class="col-md-6"><label class="labels">País</label><input id="country" type="text" class="form-control" placeholder="País" value=""></div>
+                    <div class="col-md-6"><label class="labels">Estado/Región</label><input id="state" type="text" class="form-control" value="" placeholder="Estado/Región"></div>
                 </div>
                 <div class="mt-5 text-center"><button id="btnSaveChange" class="btn btn-primary profile-button" type="button">Guardar cambios</button></div>
             </div>
@@ -164,7 +144,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Selecciona una imagen</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -176,10 +156,10 @@
         <img id="imgModal_2" class="rounded-circle mt-5" width="150px" src="/img/siluette_1.png">
         <img id="imgModal_3" class="rounded-circle mt-5" width="150px" src="/img/siluette_2.png">
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+     <!--  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -192,9 +172,6 @@
       <div></div>
     </div>
   </div>
-  <!-- <input type="file" id="file" accept="image/*" onchange="mostrar()"/>
-  <br>
-  <img class="rounded-circle mt-5" width="200px" id="img"/>  -->
   
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
