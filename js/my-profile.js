@@ -138,13 +138,13 @@ function changeImage(directionImg)
   for(let i = 0; i < parseInt((myDataBase).length) ; i++)
   {
     if(directionImg == 0){
-      myDataBase[i].img = "/img/woman.png";
+      myDataBase[i].img = "img/woman.png";
     }else if(directionImg == 1){
-      myDataBase[i].img = "/img/man.png";
+      myDataBase[i].img = "img/man.png";
     }else if(directionImg == 2){
-      myDataBase[i].img = "/img/siluette_1.png";
+      myDataBase[i].img = "img/siluette_1.png";
     }else if(directionImg == 3){
-      myDataBase[i].img = "/img/siluette_2.png";
+      myDataBase[i].img = "img/siluette_2.png";
     }
 
     document.getElementById("changeIMG").innerHTML = ` <img class="rounded-circle mt-5" width="150px" src="` + myDataBase[i].img +`">`
