@@ -8,6 +8,8 @@ let addAnotherCars = "";
 let theInd;
 let pineAndcarCost = 0;
 let cartPine;
+const buttons = document.querySelectorAll("#cardMaster, #cardVisa, #cardPay");
+let myId;
 
 document.addEventListener("DOMContentLoaded", async function(e)
 {
@@ -60,15 +62,25 @@ document.addEventListener("DOMContentLoaded", async function(e)
         addCartCars(theInd);
     });
 
+    if(false){
+        const cartButtons = document.querySelectorAll('.cart-button');
+        
+        cartButtons.forEach(button => {
+        
+        button.addEventListener('click',cartClick);
+        
+        });
+    }
 
-    const cartButtons = document.querySelectorAll('.cart-button');
+    document.getElementById("buyBtn").addEventListener("click", showInfoModal);
+
     
-    cartButtons.forEach(button => {
-    
-    button.addEventListener('click',cartClick);
-    
-    });
-   
+    buttons.forEach(botonSelected => { 
+        botonSelected.addEventListener("click", function(){
+            myId = this.id;
+        });
+    })
+   console.log(buttons)
 });
 
 
@@ -198,7 +210,40 @@ function showTotalPrice(arre){
 }
 
 
+function showInfoModal(){
+    let infoModals = "";
+    
+    if(myId !== undefined)
+    {
+        document.getElementById("btnAnimated").innerHTML = ` <button class="cart-button" id="buyBtn" data-toggle="modal" data-target="#exampleModal" > <span class="add-to-cart">Comprar</span> <span class="added">Confirmado</span> <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button>`
+        if(myId == "cardMaster" || myId == "cardVisa")
+        {
+            infoModals = `
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name" required>
+                        <br>
+                    <label for="name">Número de tarjeta</label>
+                        <input class="form-control" type="text" placeholder="0000 0000 0000 0000" autocomplete="email" required>
+                        <br>
+                    <label for="ccnumber">Vencimiento</label>
+                        <input class="form-control" type="date"  autocomplete="email">
+                        <br>
+                    <label for="cvv">CVV/CVC</label>
+                        <input class="form-control" id="cvv" type="text" placeholder="123">
+                </div>
+            `
 
+             document.querySelector(".modal-body").innerHTML = infoModals;
+        }else{
+            infoModals = ``
+        }
+    }else{
+       /*  document.querySelector(".modal-content").style.display = "none" */
+        alert("Seleccione un método de pago.")
+    }
+    
+}
 
     
     

@@ -105,12 +105,12 @@
               <option class="text-muted">Express-Delivery- UYU 10</option>
               <option class="text-muted">Premium-Delivery- UYU 15</option>
           </select>
-              <p>Tarjetas</p> 
+              <p>Método de pago</p> 
                 <div  data-toggle="button" role="group">
-                  <button type="button" class="btn btn-outline-primary"><img src="img/cardMaster.png" id="cardMaster"></button>
-                  <button type="button" class="btn btn-outline-primary"><img src="img/cardVisa.png" id="cardVisa"></button>
-                  <button type="button" class="btn btn-outline-primary"><img src="img/cardPay.png" id="cardPay"></button>
-                  </div>
+                  <button type="button" class="btn btn-outline-primary" id="cardMaster"><img src="img/cardMaster.png" id="master"></button>
+                  <button type="button" class="btn btn-outline-primary" id="cardVisa"><img src="img/cardVisa.png" id="visa"></button>
+                  <button type="button" class="btn btn-outline-primary" id="cardPay"><img src="img/cardPay.png" id="paypal"></button>
+                </div>
               
           </form>
           <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
@@ -126,6 +126,29 @@
 </div>
  <!-- Fin Probando nuevo estilo -->
  
+ <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Información del pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        algo
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="save" type="button" class="btn btn-primary">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
     
 <!-- Prueba carrusel -->
 <div id="carouselCars">

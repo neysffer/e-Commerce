@@ -267,15 +267,15 @@ a.custom-card:hover {
  } */
 
 
-#cardMaster{
+#master{
    height: 50px;
    width: 96px;
 }
-#cardVisa{
+#visa{
   height: 50px;
   width: 60px;
  }
- #cardPay{
+ #paypal{
   height: 50px;
   width: 120px;
  }
