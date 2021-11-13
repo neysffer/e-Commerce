@@ -242,6 +242,7 @@ function showInfoModal(){
 
     if(selectShipp == 0){
         alert("Seleccione un tipo de envío")
+        window.location = "cart.html"
     }else if(selectShipp == 1){
         porcentTotal = priceChangeFinal * 0.15;
         porcentTotal += priceChangeFinal;
