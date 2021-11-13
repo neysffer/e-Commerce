@@ -10,9 +10,16 @@ let pineAndcarCost = 0;
 let cartPine;
 const buttons = document.querySelectorAll("#cardMaster, #cardVisa, #cardPay");
 let myId;
+let priceChangeFinal;
+let directionStatus;
+let tOf = false;
+
 
 document.addEventListener("DOMContentLoaded", async function(e)
 {
+    document.getElementById("btnAnimated").innerHTML = ` <button class="cart-button" id="buyBtn"> <span class="add-to-cart">Comprar</span> <span class="added">Confirmado</span>
+     <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button>`;
+
     getJSONData(CART_INFO_URL).then(function(a)
     {
         if(a.status === "ok")
@@ -36,6 +43,8 @@ document.addEventListener("DOMContentLoaded", async function(e)
 
                 document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartPine.currency + (cartPine.count)*(cartPine.unitCost));
                 document.getElementById("costTotal").innerHTML = (cartPine.currency + (cartPine.count)*(cartPine.unitCost));
+                document.getElementById("sub_Total").innerHTML =  (cartPine.currency + (cartPine.count)*(cartPine.unitCost));
+                priceChangeFinal = (cartPine.count)*(cartPine.unitCost);
             }
         }
     })
@@ -62,31 +71,38 @@ document.addEventListener("DOMContentLoaded", async function(e)
         addCartCars(theInd);
     });
 
-    if(false){
-        const cartButtons = document.querySelectorAll('.cart-button');
-        
-        cartButtons.forEach(button => {
-        
-        button.addEventListener('click',cartClick);
-        
-        });
-    }
-
-    document.getElementById("buyBtn").addEventListener("click", showInfoModal);
-
-    
     buttons.forEach(botonSelected => { 
         botonSelected.addEventListener("click", function(){
             myId = this.id;
+            
+            if(myId == "cardMaster"){
+                document.getElementById("cardVisa").style.background = "none"
+                document.getElementById("cardPay").style.background = "none"
+                document.getElementById(myId).style.background = "rgb(0, 123, 255)"
+            }else if(myId == "cardVisa"){
+                document.getElementById("cardMaster").style.background = "none"
+                document.getElementById("cardPay").style.background = "none"
+                document.getElementById(myId).style.background = "rgb(0, 123, 255)"
+            }else if(myId == "cardPay"){
+                document.getElementById("cardVisa").style.background = "none"
+                document.getElementById("cardMaster").style.background = "none"
+                document.getElementById(myId).style.background = "rgb(0, 123, 255)"
+            }
+            showInfoModal();
         });
     })
-   console.log(buttons)
+        console.log(buttons)
+        document.getElementById("buyBtn").addEventListener("click", showInfoModal);
+
+   /*  document.getElementById("continue").addEventListener("click", showDirectionInfo); */
+    
 });
 
 
 function cartClick(){
-    let button =this;
+    let button = this;
     button.classList.add('clicked');
+    alert("Su compra se procesó con éxito")
     }
 
 
@@ -137,6 +153,8 @@ function changeCartCant(){
             document.getElementById("totalProducts").innerHTML = "Cantidad:" + value;
             document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][j].currency + (value)*(cartProduct[`articles`][j].unitCost));
             document.getElementById("costTotal").innerHTML = (cartProduct[`articles`][j].currency + (value)*(cartProduct[`articles`][j].unitCost));
+            document.getElementById("sub_Total").innerHTML = (cartProduct[`articles`][j].currency + (value)*(cartProduct[`articles`][j].unitCost));
+            priceChangeFinal = (value)*(cartProduct[`articles`][j].unitCost);
         }
     }else{
         for(let j = 0; j < cartProduct[`articles`].length; j++)
@@ -145,6 +163,8 @@ function changeCartCant(){
             document.getElementById("totalProducts").innerHTML = "Cantidad:" + value;
             document.getElementById("subTotal").innerHTML = "Subtotal:" + " " + (cartProduct[`articles`][j].currency + (value)*(cartProduct[`articles`][j].unitCost));
             document.getElementById("costTotal").innerHTML = (cartProduct[`articles`][j].currency + pineAndcarCostTotal);
+            document.getElementById("sub_Total").innerHTML =  (cartProduct[`articles`][j].currency + pineAndcarCostTotal);
+            priceChangeFinal =  pineAndcarCostTotal;
         }
     }
 }
@@ -206,13 +226,37 @@ function showTotalPrice(arre){
         totalCost *= 43;
         totalCost += pineCount;
         document.getElementById("costTotal").innerHTML = "UYU" + totalCost;
+        document.getElementById("sub_Total").innerHTML = "UYU" + totalCost;
         pineAndcarCost = totalCost - 200;
+        priceChangeFinal = totalCost;
 }
 
 
 function showInfoModal(){
     let infoModals = "";
+    let selectShipp = document.getElementById("send").value;
+    let changePrice = document.getElementById("costTotal");
+    let porcentTotal;
     
+    console.log(selectShipp)
+
+    if(selectShipp == 0){
+        alert("Seleccione un tipo de envío")
+    }else if(selectShipp == 1){
+        porcentTotal = priceChangeFinal * 0.15;
+        porcentTotal += priceChangeFinal;
+        changePrice.innerHTML = "UYU" + porcentTotal;
+    }else if(selectShipp == 2){
+        porcentTotal = priceChangeFinal * 0.07;
+        porcentTotal += priceChangeFinal;
+        changePrice.innerHTML = "UYU" + porcentTotal;
+    }else if(selectShipp == 3){
+        porcentTotal = priceChangeFinal * 0.05;
+        porcentTotal += priceChangeFinal;
+        changePrice.innerHTML = "UYU" + porcentTotal;
+    }
+
+
     if(myId !== undefined)
     {
         document.getElementById("btnAnimated").innerHTML = ` <button class="cart-button" id="buyBtn" data-toggle="modal" data-target="#exampleModal" > <span class="add-to-cart">Comprar</span> <span class="added">Confirmado</span> <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button>`
@@ -220,30 +264,139 @@ function showInfoModal(){
         {
             infoModals = `
                 <div class="form-group">
-                    <label for="name">Nombre</label>
+                    <label>Nombre</label>
                         <input class="form-control" id="name" type="text" placeholder="Enter your name" required>
                         <br>
-                    <label for="name">Número de tarjeta</label>
-                        <input class="form-control" type="text" placeholder="0000 0000 0000 0000" autocomplete="email" required>
+                    <label>Número de tarjeta</label>
+                        <input class="form-control" id="numbCard" type="text" placeholder="0000 0000 0000 0000" required>
                         <br>
-                    <label for="ccnumber">Vencimiento</label>
-                        <input class="form-control" type="date"  autocomplete="email">
+                    <label>Vencimiento</label>
+                        <input id="cad" class="form-control" type="date">
                         <br>
-                    <label for="cvv">CVV/CVC</label>
-                        <input class="form-control" id="cvv" type="text" placeholder="123">
+                    <label>CVV/CVC</label>
+                        <input id="cvv" class="form-control" id="cvv" type="text" placeholder="123">
                 </div>
             `
-
              document.querySelector(".modal-body").innerHTML = infoModals;
-        }else{
-            infoModals = ``
+        }else if(myId == "cardPay"){
+           
+            infoModals = `
+            <div class="form-group">
+                <label>Correo electrónico</label>
+                    <input class="form-control" id="hotmail" type="text" placeholder="Email" required>
+                <br>
+                <label>Contraseña</label>
+                    <input class="form-control" id="seña" type="password" placeholder="Contraseña" required>
+            </div>        
+            `
+            document.querySelector(".modal-body").innerHTML = infoModals;
         }
+        document.getElementById("continue").addEventListener("click", showDirectionInfo);
     }else{
-       /*  document.querySelector(".modal-content").style.display = "none" */
-        alert("Seleccione un método de pago.")
+        alert("Seleccione un método de pago.");
     }
+
+    document.getElementById("buyBtn").addEventListener("click", showInfoModal);
     
 }
 
+function showDirectionInfo(){
+    let infoDirection = "";
+    let name = document.getElementById("name");
+    let card = document.getElementById("numbCard");
+    let cad = document.getElementById("cad");
+    let cvv = document.getElementById("cvv");
+    let hotmail = document.getElementById("hotmail");
+    let seña = document.getElementById("seña");
+    console.log(hotmail);
     
+    if(name !== null && card !== null && cad !== null && cvv !== null)
+    {
+
+        if(name.value !== "" && card.value !== "" && cad.value !== "" && cvv.value !== "")
+        {
+            infoDirection = `  
+                <div class="form-group">  
+                    <label>País</label>
+                        <input class="form-control" id="pais" type="text" placeholder="País" required>
+                    <br>
+                    <label>Dirección</label>
+                        <input class="form-control" id="direction" type="text" placeholder="Dirección" required>
+                    <br>    
+                    <label>Calle</label>
+                        <input class="form-control" id="street" type="text" placeholder="Calle" required>
+                    <br>
+                    <label>Número</label>
+                        <input class="form-control" id="number" type="text" placeholder="Número" required>
+                    <br>
+                    <label>Esquina</label>
+                        <input class="form-control" id="esq" type="text" placeholder="Esquina" required>
+                    <br>
+                </div> 
+                `
+                directionStatus = document.getElementById("changeButton");
+                document.querySelector(".modal-body").innerHTML = infoDirection;
+                document.getElementById("changeButton").innerHTML = ` <button id="aceptar" type="button" class="btn btn-primary">Aceptar</button>`
+        }else{
+            alert("Llene todos los campos para continuar");
+        }
+    }else if(hotmail !== null && seña !== null){
+        if(hotmail.value !== "" && seña.value !== ""){
+
+            infoDirection = `  
+            <div class="form-group">  
+                <label>País</label>
+                    <input class="form-control" id="pais" type="text" placeholder="País" required>
+                <br>   
+                <label>Calle</label>
+                    <input class="form-control" id="street" type="text" placeholder="Calle" required>
+                <br>
+                <label>Número</label>
+                    <input class="form-control" id="number" type="text" placeholder="Número" required>
+                <br>
+                <label>Esquina</label>
+                    <input class="form-control" id="esq" type="text" placeholder="Esquina" required>
+                <br>
+            </div> 
+            `
+            directionStatus = document.getElementById("changeButton");
+            document.querySelector(".modal-body").innerHTML = infoDirection;
+            document.getElementById("changeButton").innerHTML = ` <button id="aceptar" type="button" class="btn btn-primary">Aceptar</button>`
+        }else{
+            alert("Llene todos los campos para continuar");
+        }
+    }
+   
+    document.getElementById("aceptar").addEventListener("click", aceptBuy);
+    
+}  
+
+function aceptBuy(){
+    let pais = document.getElementById("pais").value;
+    let street = document.getElementById("street").value;
+    let numb = document.getElementById("number").value;
+    let esq = document.getElementById("esq").value;
+
+    if(pais !== "" && street !== "" && numb !== "" && esq !== "")
+    {
+        confirm("¿Estás seguro de proseguir con tu compra? No hay vuelta atrás, si es así, confirma tu compra al finalizar.")
+        if(confirm){
+            $('#exampleModal').modal('hide');
+            
+            document.getElementById("btnAnimated").innerHTML = ` <button class="cart-button" id="buyBtn"> <span class="add-to-cart">Confirmar</span> <span class="added">Confirmado</span>
+            <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button>`;
+
+            const cartButtons = document.querySelectorAll('.cart-button');
+        
+            cartButtons.forEach(button => {
+        
+            button.addEventListener('click',cartClick);
+        
+        });
+        }
+    }else{
+        alert("Completa todo los campos.")
+    }
+
+}
     
