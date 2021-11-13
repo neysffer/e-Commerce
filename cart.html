@@ -99,14 +99,14 @@
           <hr>
           <form>
             <p>Código de descuento</p> <input id="code" placeholder="Ingresa el código">
-            <p>Envío</p> <select>
-              <option class="text-muted">-</option>
-              <option class="text-muted">Standard-Delivery- UYU 5</option>
-              <option class="text-muted">Express-Delivery- UYU 10</option>
-              <option class="text-muted">Premium-Delivery- UYU 15</option>
+            <p>Envío</p> <select id="send">
+              <option class="text-muted" value="0">-</option>
+              <option class="text-muted" value="1">Premium (2-5 días)</option>
+              <option class="text-muted" value="2">Express (5-8 días)</option>
+              <option class="text-muted" value="3">Standard (12-15 días)</option>
           </select>
               <p>Método de pago</p> 
-                <div  data-toggle="button" role="group">
+                <div> <!-- class="btn-group" role="group" aria-label="Basic example" -->
                   <button type="button" class="btn btn-outline-primary" id="cardMaster"><img src="img/cardMaster.png" id="master"></button>
                   <button type="button" class="btn btn-outline-primary" id="cardVisa"><img src="img/cardVisa.png" id="visa"></button>
                   <button type="button" class="btn btn-outline-primary" id="cardPay"><img src="img/cardPay.png" id="paypal"></button>
@@ -114,11 +114,19 @@
               
           </form>
           <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+            <div class="container">
+            <div class="row">
+            <div class="col">Subtotal</div>
+              <div id="sub_Total"></div>
+            </div>
+            <div class="row">
               <div class="col">TOTAL + IVA</div>
-              <div class="col text-right" id="costTotal"></div>
+              <div  id="costTotal"></div>
+            </div>
+          </div>
           </div> 
           <div id="btnAnimated">
-            <button class="cart-button" id="buyBtn"> <span class="add-to-cart">Comprar</span> <span class="added">Confirmado</span> <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button>
+           <!--  <button class="cart-button" id="buyBtn" data-toggle="modal" data-target="#exampleModal"> <span class="add-to-cart">Comprar</span> <span class="added">Confirmado</span> <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button> -->
           </div>
       </div>
   </div>
@@ -137,14 +145,13 @@
         </button>
       </div>
       <div class="modal-body">
-        
-        algo
-
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button id="save" type="button" class="btn btn-primary">Guardar cambios</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <div id="changeButton">
+          <button id="continue" type="button" class="btn btn-primary">Continuar</button>
+      </div>
       </div>
     </div>
   </div>
